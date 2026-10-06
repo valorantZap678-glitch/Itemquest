@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b12">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg">
+<title>ItemQuest</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#090b12;color:#fff;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{border:0;border-radius:14px;padding:12px 15px;font-weight:800;cursor:pointer}input{width:100%;padding:12px;border-radius:12px;border:1px solid #34384a;background:#111521;color:#fff}.app{max-width:900px;margin:auto;padding:16px 14px 90px}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.brand{font-size:25px;font-weight:1000}.muted{color:#aab1c5}.small{font-size:12px}.nav{display:flex;gap:8px;overflow:auto;padding-bottom:8px}.nav button{white-space:nowrap;background:#171b29;color:#cdd3e5}.nav button.active{background:#6d5dfc;color:#fff}.screen{display:none}.screen.active{display:block}.panel{background:#111521;border:1px solid #292e40;border-radius:18px;padding:15px;margin:12px 0}.hero{padding:20px;background:linear-gradient(135deg,#171a2b,#10121c);border:1px solid #30364e;border-radius:22px}.hero h1{margin:0 0 8px;font-size:32px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.btn{background:#252b3b;color:#fff}.primary{background:#6d5dfc;color:#fff}.good{background:#18a974;color:#fff}.danger{background:#c83e56;color:#fff}.gold{background:#c99522;color:#fff}.mission{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px;border-radius:14px;background:#171b29;margin:8px 0}.bar{height:9px;background:#292e40;border-radius:99px;overflow:hidden}.fill{height:100%;background:#6d5dfc}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{position:relative;overflow:hidden;border-radius:18px;border:1px solid #3a4054;background:#171b29;min-height:260px}.card .pic{height:145px;background:#0d1018 center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:55px}.card .body{padding:10px}.badge{display:inline-block;padding:4px 8px;border-radius:99px;background:#282e40;font-size:11px;font-weight:900}.mythical{box-shadow:0 0 0 2px #e85dff,0 0 22px rgba(232,93,255,.35)}.god{box-shadow:0 0 0 2px #ff9f43,0 0 25px rgba(255,159,67,.45)}.divine{box-shadow:0 0 0 2px #fff,0 0 30px rgba(255,255,255,.55)}.legendary{box-shadow:0 0 0 2px #f5c451}.epic{box-shadow:0 0 0 2px #a879ff}.rare{box-shadow:0 0 0 2px #54a8ff}.common{box-shadow:0 0 0 1px #4a5268}.statrow{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin:5px 0}.tag{font-size:11px;color:#b9c0d4}.upload{display:block;text-align:center;padding:15px;border:1px dashed #555d75;border-radius:14px;background:#171b29;font-weight:900}.upload input{display:none}.preview{max-width:100%;max-height:220px;border-radius:14px;margin-top:10px;display:block}.battlebox{padding:14px;border-radius:18px;background:#111521;border:1px solid #30364a}.fighter{display:grid;grid-template-columns:1fr 1fr;gap:10px}.turn{font-weight:1000;color:#d9d4ff}.bosslist{display:grid;gap:10px}.boss{padding:14px;border:1px solid #3a4054;border-radius:16px;background:#171b29}.attackfx{position:fixed;left:50%;top:48%;transform:translate(-50%,-50%) scale(.7);z-index:30;pointer-events:none;font-size:70px;font-weight:1000;text-align:center;animation:attackPop .7s ease-out forwards;text-shadow:0 4px 20px #000}.attackfx span{display:block;font-size:18px;margin-top:4px}.attackfx.shoe{animation:stomp .7s ease-out forwards}.attackfx.drone,.attackfx.skateboard{animation:dash .7s ease-out forwards}.attackfx.book,.attackfx.camera{animation:flash .7s ease-out forwards}.attackfx.plant{animation:grow .7s ease-out forwards}@keyframes attackPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}35%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}100%{opacity:0;transform:translate(-50%,-55%) scale(1)}}@keyframes stomp{0%{opacity:0;transform:translate(-50%,-80%) scale(.5)}45%{opacity:1;transform:translate(-50%,-50%) scale(1.25)}100%{opacity:0;transform:translate(-50%,-35%) scale(1)}}@keyframes dash{0%{opacity:0;transform:translate(-100%,-50%) scale(.7)}45%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}100%{opacity:0;transform:translate(40%,-50%) scale(.9)}}@keyframes flash{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}25%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.05)}}@keyframes grow{0%{opacity:0;transform:translate(-50%,20%) scale(.5)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}100%{opacity:0;transform:translate(-50%,-65%) scale(1)}}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#fff;color:#111;padding:11px 15px;border-radius:99px;font-weight:800;display:none;z-index:20;max-width:90%}.footer{margin-top:20px;color:#727b92;text-align:center;font-size:11px}@media(min-width:700px){.cards{grid-template-columns:repeat(4,minmax(0,1fr))}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><div><div class="brand">⚔️ ItemQuest</div><div class="muted small">Turn everyday objects into heroes.</div></div><div style="display:flex;gap:7px;align-items:center"><div class="badge" id="coinBadge">🪙 0</div><div class="badge" id="levelBadge">LV 1</div></div></div>
+  <div class="nav" id="nav">
+    <button data-go="home" class="active">Home</button><button data-go="scan">Create</button><button data-go="collection">Collection</button><button data-go="deck">Deck</button><button data-go="battle">Battle</button><button data-go="shop">🛒 Shop</button>
+  </div>
+
+  <section id="home" class="screen active">
+    <div class="hero"><h1>Build your ItemQuest.</h1><p class="muted">Create cards, complete missions, level up your favorites, and defeat bosses — all on one phone.</p><div class="grid"><button class="primary" data-go="scan">📸 Create Card</button><button class="gold" data-go="battle">⚔️ Start Battle</button></div></div>
+    <div class="panel"><h3>🎯 Missions</h3><div id="missionsHome"></div><button class="btn" data-go="missions">View all missions</button></div>
+    <div class="panel"><h3>📊 Progress</h3><div id="progressHome"></div></div><div class="panel"><h3>🛒 Game Shop</h3><p class="muted">Spend coins earned from battles and quests on new cards.</p><button class="gold" data-go="shop">Open Shop</button></div>
+  </section>
+
+  <section id="scan" class="screen">
+    <div class="panel"><h2>📸 Create a Card</h2><p class="muted">Take a photo and edit its name before creating the card.</p>
+      <label class="upload">📷 TAKE / CHOOSE PHOTO<input id="photo" type="file" accept="image/*" capture="environment"></label>
+      <img id="preview" class="preview" style="display:none">
+      <div id="nameBox" style="display:none;margin-top:10px"><label class="muted small" for="cardName">CARD NAME</label><input id="cardName" maxlength="28" placeholder="Example: My Blue Backpack"></div>
+      <div class="grid" style="margin-top:10px"><button class="primary" data-action="make-card">✨ CREATE CARD</button><button class="gold" data-action="ai-card">🤖 AI GENERATE CARD</button></div>
+    </div>
+    <div class="panel"><h3>🤖 AI Card Generator</h3><p class="muted small">The free GitHub Pages version uses an offline generator, so it works without an API key or paid AI service. Type an idea and ItemQuest will build an original card.</p><input id="aiPrompt" placeholder="Example: glowing gaming headset"><button class="primary" style="margin-top:10px;width:100%" data-action="ai-card">Generate from idea</button></div>
+  </section>
+
+  <section id="collection" class="screen"><div class="top"><div><h2 style="margin:0">🗃️ Collection</h2><div class="muted small" id="collectionCount"></div></div><button class="btn" data-action="ai-card">🤖 AI Card</button></div><div id="cards" class="cards"></div></section>
+
+  <section id="deck" class="screen"><div class="panel"><h2>🃏 Deck Builder</h2><p class="muted">Build and save multiple decks. Each deck can hold up to <b>60 cards</b>. Card levels are saved globally, so a leveled card stays leveled in every deck.</p><div class="grid"><select id="deckSelect" class="input" aria-label="Choose deck"></select><button class="secondary" data-action="new-deck">➕ New Deck</button></div><div class="grid" style="margin-top:8px"><button class="secondary" data-action="rename-deck">✏️ Rename Deck</button><button class="danger" data-action="delete-deck">🗑️ Delete Deck</button></div><div id="deckInfo"></div><button class="primary" data-action="save-deck">💾 Save Deck</button></div><div id="deckCards" class="cards"></div></section>
+
+  <section id="battle" class="screen">
+    <div class="panel"><h2>⚔️ Battle Arena</h2><div class="grid"><button class="primary" data-action="start-battle">👥 Pass & Play</button><button class="gold" data-action="boss-menu">👑 Fight Boss</button></div><p class="muted small">Pass-and-play uses randomized lineups so both sides don't receive the exact same cards.</p></div>
+    <div id="battleArea"></div>
+  </section>
+
+  <section id="missions" class="screen"><div class="panel"><h2>🎯 Missions</h2><p class="muted">Finish quests to earn Quest XP and coins.</p><div id="missionsAll"></div></div></section>
+  <section id="shop" class="screen"><div class="panel"><div class="top"><div><h2 style="margin:0">🛒 Game Shop</h2><div class="muted small">Buy cards with coins. God and Divine cards can appear too.</div></div><div class="badge" id="shopCoins">🪙 0</div></div><div id="shopCards" class="cards"></div><button class="secondary" data-action="refresh-shop" style="margin-top:10px;width:100%">🔄 Refresh Shop • 25 coins</button></div></section>
+  <div class="footer">ItemQuest is an original fan-style concept. No external AI key is stored in this free web app.</div>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+const KEY='itemquest_v5';
+const types=['Heat','Water','Nature','Energy','Earth','Arcane','Comfort','Metal','Air','Light'];
+const rarities=['Common','Rare','Epic','Legendary','Mythical','God','Divine'];
+const emojis=['🍞','🌱','🕹️','📚','💡','📱','💻','⌨️','🖱️','🎮','🥤','🪑','🎒','🔑','🪞','⚽','👟','🎧','⌚','📷','🧸','🛋️','🚲','🧩'];
+const abilities={
+ toaster:['Heat Burst','Toast Shield','Crisp Charge','Breakfast Blaze'],plant:['Root Guard','Vine Whip','Leaf Mend','Sun Sip'],lamp:['Glow Guard','Flash Beam','Night Light','Radiant Pulse'],book:['Page Storm','Knowledge Wall','Chapter Heal','Bookmark Strike'],arcade:['Combo Rush','Pixel Shield','High Score','Boss Button'],phone:['Signal Surge','Quick Call','Battery Boost','Screen Flash'],computer:['System Boost','Firewall','Overclock','Data Burst'],keyboard:['Key Smash','Shortcut','Rapid Type','Shift Guard'],mouse:['Pointer Dash','Click Burst','Cursor Dodge','Drag Strike'],controller:['Combo Pad','Trigger Blast','Vibration Guard','Final Button'],cup:['Sip Shield','Splash Hit','Refill','Hot Drink'],bottle:['Bottle Bash','Hydro Guard','Refill Rush','Cap Toss'],chair:['Seat Guard','Leg Sweep','Backrest Bash','Comfort Heal'],table:['Table Slam','Flat Guard','Four Legs','Surface Shield'],shoe:['Sprint Kick','Lace Trap','Fast Step','Sole Guard'],backpack:['Packed Punch','Pocket Guard','Heavy Load','Supply Heal'],key:['Unlock','Key Slash','Master Key','Lock Guard'],remote:['Channel Zap','Mute Shield','Power Button','Rewind'],mirror:['Reflect','Double Image','Shine Back','Glass Guard'],ball:['Bounce Blast','Ricochet','Curve Shot','Ball Guard'],headphones:['Sound Wave','Bass Blast','Noise Shield','Echo Pulse'],camera:['Snapshot Strike','Flash Guard','Zoom Burst','Focus Lock'],drone:['Drone Dive','Propeller Rush','Sky Scout','Air Drop'],skateboard:['Kickflip Crash','Board Dash','Rail Guard','Rolling Rush'],umbrella:['Rain Guard','Umbrella Bash','Storm Shield','Wind Spin'],watch:['Time Check','Second Hand','Clock Shield','Time Pulse'],bike:['Pedal Rush','Wheel Bash','Handlebar Guard','Turbo Ride'],generic:['Object Bash','Sturdy Guard','Mystery Power','Quick Move']
+};
+const bosses=[
+ {id:'circuit',name:'Circuit Overlord',type:'Energy',hp:420,atk:72,def:44,ability:'Overclock Storm',reward:120},
+ {id:'wildwood',name:'Wildwood Colossus',type:'Nature',hp:500,atk:64,def:58,ability:'Ancient Roots',reward:150},
+ {id:'void',name:'Void Librarian',type:'Arcane',hp:460,atk:78,def:40,ability:'Forbidden Chapter',reward:180}
+];
+const missions=[
+ {id:'create3',name:'First Collection',desc:'Create 3 cards',goal:3,reward:40,coins:75,fn:s=>s.created},
+ {id:'battle3',name:'Battle Ready',desc:'Win 3 player battles',goal:3,reward:60,coins:150,fn:s=>s.playerWins},
+ {id:'boss1',name:'Boss Hunter',desc:'Defeat 1 boss',goal:1,reward:80,coins:200,fn:s=>s.bossWins},
+ {id:'use10',name:'Practice Makes Power',desc:'Use cards in 10 attacks or abilities',goal:10,reward:70,coins:125,fn:s=>s.uses},
+ {id:'mythic',name:'Mythical Discovery',desc:'Create or obtain a Mythical card',goal:1,reward:120,coins:300,fn:s=>s.mythical},
+ {id:'level5',name:'Power Up',desc:'Level a card to level 5',goal:1,reward:100,coins:175,fn:s=>s.level5}
+];
+function fresh(){return {cards:[],deck:[],decks:{'Starter Deck':[]},activeDeck:'Starter Deck',stats:{created:0,playerWins:0,bossWins:0,uses:0,mythical:0,level5:0,questXP:0,coins:0},missions:{},lastBoss:null,battle:null,shop:{seed:1,offers:[]}}}
+let state=load();
+function load(){try{let x=JSON.parse(localStorage.getItem(KEY)); if(x)return migrate(x)}catch(e){} return fresh()}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));renderAll()}
+function migrate(x){x.cards=x.cards||[];x.stats=Object.assign(fresh().stats,x.stats||{});x.stats.coins=x.stats.coins||0;x.missions=x.missions||{};x.shop=Object.assign(fresh().shop,x.shop||{});x.cards=x.cards.map(normalize);if(!x.decks||typeof x.decks!=='object'||Array.isArray(x.decks)){x.decks={'Starter Deck':(x.deck||[])};x.activeDeck='Starter Deck'}x.activeDeck=x.activeDeck&&x.decks[x.activeDeck]?x.activeDeck:Object.keys(x.decks)[0]||'Starter Deck';if(!x.decks[x.activeDeck])x.decks[x.activeDeck]=[];for(const k of Object.keys(x.decks))x.decks[k]=(x.decks[k]||[]).filter(id=>x.cards.some(c=>c.id===id)).slice(0,60);x.deck=x.decks[x.activeDeck];return x}
+function esc(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function hash(s){let h=0;for(let i=0;i<s.length;i++)h=((h<<5)-h+s.charCodeAt(i))|0;return Math.abs(h)}
+function normalize(c){c.level=c.level||1;c.xp=c.xp||0;c.uses=c.uses||0;c.rarity=c.rarity||'Common';c.atk=c.atk||20;c.def=c.def||20;c.hp=c.hp||100;let max=maxCardLevel(c.rarity);if(c.level>max)c.level=max;return c}
+function rarityFromSeed(n){let r=n%1000;return r<500?'Common':r<730?'Rare':r<880?'Epic':r<960?'Legendary':r<990?'Mythical':r<998?'God':'Divine'}
+function typeForItem(name){let s=name.toLowerCase();if(/toaster|oven|stove|candle|heater|hot/.test(s))return'Heat';if(/plant|tree|leaf|flower|grass/.test(s))return'Nature';if(/water|bottle|cup|drink|pool/.test(s))return'Water';if(/phone|computer|keyboard|mouse|controller|arcade|tv|charger|battery/.test(s))return'Energy';if(/rock|stone|table|chair|shoe|ball/.test(s))return'Earth';if(/book|mirror|key|remote/.test(s))return'Arcane';if(/lamp|light|mirror/.test(s))return'Light';if(/backpack|pillow|blanket|couch|bed/.test(s))return'Comfort';if(/metal|pan|fork|spoon/.test(s))return'Metal';if(/fan|kite|paper/.test(s))return'Air';return types[hash(s)%types.length]}
+function keyForItem(name){let s=name.toLowerCase();if(/toaster|oven|stove/.test(s))return'toaster';if(/plant|tree|flower|leaf|cactus/.test(s))return'plant';if(/lamp|light|lantern|flashlight/.test(s))return'lamp';if(/book|notebook|journal|magazine/.test(s))return'book';if(/arcade|game|console/.test(s))return'arcade';if(/phone|smartphone|iphone|android/.test(s))return'phone';if(/computer|laptop|pc/.test(s))return'computer';if(/keyboard/.test(s))return'keyboard';if(/mouse/.test(s))return'mouse';if(/controller|gamepad|joystick/.test(s))return'controller';if(/cup|mug|glass/.test(s))return'cup';if(/bottle|thermos|flask/.test(s))return'bottle';if(/chair|stool/.test(s))return'chair';if(/table|desk/.test(s))return'table';if(/shoe|sneaker|boot|slipper/.test(s))return'shoe';if(/backpack|bag|purse/.test(s))return'backpack';if(/key|keychain/.test(s))return'key';if(/remote/.test(s))return'remote';if(/mirror/.test(s))return'mirror';if(/ball/.test(s))return'ball';if(/headphone|headset|earbud/.test(s))return'headphones';if(/camera|webcam/.test(s))return'camera';if(/drone/.test(s))return'drone';if(/skateboard|skate/.test(s))return'skateboard';if(/umbrella/.test(s))return'umbrella';if(/watch|smartwatch/.test(s))return'watch';if(/bike|bicycle/.test(s))return'bike';return'generic'}
+function abilityForItem(name,id){let a=abilities[keyForItem(name)];return a[hash(name+id)%a.length]}
+function maxCardLevel(rarity){return {Common:20,Rare:30,Epic:50,Legendary:75,Mythical:100,God:125,Divine:150}[rarity]||20}
+function rarityMult(r){return {Common:1,Rare:1.15,Epic:1.32,Legendary:1.55,Mythical:1.85,God:2.2,Divine:2.7}[r]||1}
+function accountLevel(){let total=state.stats.questXP||0,lvl=1,need=100;while(total>=need){total-=need;lvl++;need=100+lvl*25}return {lvl,xp:total,need}}
+function bossScaled(base){let L=accountLevel().lvl;let scale=1+Math.min(2.2,(L-1)*0.075);return Object.assign({},base,{hp:Math.round(base.hp*scale),atk:Math.round(base.atk*(1+(L-1)*0.06)),def:Math.round(base.def*(1+(L-1)*0.055)),accountLevel:L,scale})}
+function levelXP(lvl){return 40+lvl*25}
+function cardPower(c){return c.atk+c.def+Math.floor(c.hp/5)}
+function handlePhoto(e){
+  const file=e&&e.target&&e.target.files&&e.target.files[0];
+  if(!file)return;
+  const preview=document.getElementById('preview');
+  const box=document.getElementById('nameBox');
+  const name=document.getElementById('cardName');
+  if(preview){
+    preview.src=URL.createObjectURL(file);
+    preview.style.display='block';
+  }
+  if(box) box.style.display='block';
+  if(name && !name.value) name.value=file.name.replace(/\.[^.]+$/,'').replace(/[_-]+/g,' ').slice(0,28);
+  window.itemQuestPhotoFile=file;
+  toast('Photo ready — choose a name and create your card!');
+}
+function makeCard(){
+  const name=(document.getElementById('cardName')?.value||'').trim();
+  const file=window.itemQuestPhotoFile;
+  let img='';
+  if(file){
+    try{img=URL.createObjectURL(file)}catch(e){img=''}
+  }
+  createCard(name||'Mystery Item',img,'photo');
+}
+function createCard(name,img,source='photo'){name=(name||'Mystery Item').trim().slice(0,28)||'Mystery Item';let id=Date.now().toString(36)+Math.random().toString(36).slice(2,7);let seed=hash(name+id);let rarity=rarityFromSeed(seed);let mult=rarityMult(rarity);let c={id,name,type:typeForItem(name),rarity,ability:abilityForItem(name,id),hp:Math.round((85+seed%45)*mult),atk:Math.round((18+seed%24)*mult),def:Math.round((16+seed%22)*mult),level:1,xp:0,uses:0,img:img||'',source};state.cards.unshift(c);state.stats.created++;if(rarity==='Mythical')state.stats.mythical++;toast('Created '+name+' — '+rarity+'!');checkMissions();save();go('collection');return c}
+function aiGenerate(){
+let p=(document.getElementById('aiPrompt')?.value||'').trim();
+if(!p)p=['Neon Skateboard','Galaxy Backpack','Mystic Headphones','Pocket Drone','Golden Water Bottle','Pixel Camera','Storm Umbrella','Cosmic Lamp'][Math.floor(Math.random()*8)];
+let clean=p.replace(/[^a-zA-Z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+let seed=hash(clean+Date.now());
+let itemKey=keyForItem(clean);
+let itemNames={toaster:'Toaster',plant:'Plant',lamp:'Lamp',book:'Book',arcade:'Arcade',phone:'Phone',computer:'Computer',keyboard:'Keyboard',mouse:'Mouse',controller:'Controller',cup:'Cup',bottle:'Bottle',chair:'Chair',table:'Table',shoe:'Shoe',backpack:'Backpack',key:'Key',remote:'Remote',mirror:'Mirror',ball:'Ball',headphones:'Headphones',camera:'Camera',drone:'Drone',skateboard:'Skateboard',umbrella:'Umbrella',watch:'Watch',bike:'Bike',generic:'Mystery Item'};
+let item=itemNames[itemKey]||itemNames.generic;
+let adjectives=['Titan','Guardian','Phantom','Champion','Golem','Sprite','Overlord','Runner'];
+let name=(clean.length<=22?clean:item)+' '+adjectives[seed%adjectives.length];
+if(name.length>28)name=item+' '+adjectives[seed%adjectives.length];
+let c=createCard(name,'','ai');
+c.emoji=emojis[seed%emojis.length];
+let aiRarity=rarityFromSeed(seed);c.rarity=aiRarity;c.type=typeForItem(item+' '+clean);c.ability=abilityForItem(item+' '+clean,c.id);let am=rarityMult(aiRarity);c.hp=Math.round(c.hp*am);c.atk=Math.round(c.atk*am);c.def=Math.round(c.def*am);if(aiRarity==='Mythical'||aiRarity==='God'||aiRarity==='Divine')state.stats.mythical++;save();go('collection');toast('AI made '+item+' card: '+c.ability);
+}
+function addXP(c,amount){c.xp+=amount;let leveled=false;while(c.xp>=levelXP(c.level)&&c.level<maxCardLevel(c.rarity)){c.xp-=levelXP(c.level);c.level++;leveled=true;if(c.level===5)state.stats.level5=1}let bonus=c.level-1;c.atk+=leveled?3:0;c.def+=leveled?3:0;c.hp+=leveled?8:0;if(leveled)toast(c.name+' reached Level '+c.level+'!')}
+function getCard(id){return state.cards.find(c=>c.id===id)}
+function cardHTML(c,opts={}){let img=c.img?`background-image:url('${c.img}')`:'';let emoji=c.emoji||emojis[hash(c.name)%emojis.length];let cls=c.rarity.toLowerCase();return `<div class="card ${cls}"><div class="pic" style="${img}">${c.img?'':emoji}</div><div class="body"><b>${esc(c.name)}</b><div class="tag">${c.type} • ${c.rarity}</div><div class="statrow"><span>❤️ ${c.hp}</span><span>⚔️ ${c.atk}</span><span>🛡️ ${c.def}</span></div><div class="tag">✨ ${esc(c.ability)}</div><div class="statrow"><span>Level ${c.level}/${maxCardLevel(c.rarity)}</span><span>Uses ${c.uses}</span></div><div class="bar"><div class="fill" style="width:${Math.min(100,(c.level>=maxCardLevel(c.rarity)?100:c.xp/levelXP(c.level)*100))}%"></div></div>${opts.button?`<button class="btn" style="width:100%;margin-top:8px" data-action="${opts.button}" data-id="${c.id}">${opts.label||'Add'}</button>`:''}</div></div>`}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));let el=document.getElementById(id);if(el)el.classList.add('active');document.querySelectorAll('#nav [data-go]').forEach(b=>b.classList.toggle('active',b.dataset.go===id));renderAll()}
+function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.style.display='none',1800)}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function renderProgress(){let q=accountLevel(),lvl=q.lvl,need=q.need,xp=q.xpdocument.getElementById('levelBadge').textContent='LV '+lvl;document.getElementById('coinBadge').textContent='🪙 '+state.stats.coins;document.getElementById('progressHome').innerHTML=`<div class="statrow"><b>Account Level</b><b>LV ${lvl}</b></div><div class="bar"><div class="fill" style="width:${xp/need*100}%"></div></div><div class="muted small" style="margin-top:6px">${xp}/${need} Quest XP • 🪙 ${state.stats.coins} coins • ${state.cards.length} cards • ${state.deck.length}/60 active deck • ${Object.keys(state.decks||{}).length} decks</div>`}
+function missionValue(m){return Math.min(m.goal,m.fn(state.stats))}
+function claimMission(id){let m=missions.find(x=>x.id===id);if(!m||state.missions[id])return;if(missionValue(m)>=m.goal){state.missions[id]=true;state.stats.questXP+=m.reward;state.stats.coins+=(m.coins||0);toast('Mission complete! +'+m.reward+' XP and '+(m.coins||0)+' coins');save()}}
+function checkMissions(){missions.forEach(m=>{if(!state.missions[m.id]&&missionValue(m)>=m.goal){}})}
+function missionHTML(m){let v=missionValue(m),done=!!state.missions[m.id];return `<div class="mission"><div style="flex:1"><b>${done?'✅ ':''}${esc(m.name)}</b><div class="muted small">${esc(m.desc)}</div><div class="bar" style="margin-top:7px"><div class="fill" style="width:${v/m.goal*100}%"></div></div><div class="small muted">${v}/${m.goal} • 🪙 ${m.coins||0} coins</div></div>${!done&&v>=m.goal?`<button class="gold" data-action="claim" data-id="${m.id}">Claim</button>`:`<span class="badge">+${m.reward} XP</span>`}</div>`}
+function renderMissions(){let h=missions.map(missionHTML).join('');document.getElementById('missionsHome').innerHTML=missions.slice(0,3).map(missionHTML).join('');document.getElementById('missionsAll').innerHTML=h}
+const shopPools={Common:['Apple Scout','Paper Sprite','Basic Mug','Tiny Ball','Pocket Book'],Rare:['Neon Headphones','Turbo Backpack','Crystal Bottle','Arcade Runner','Flash Camera'],Epic:['Storm Skateboard','Phantom Drone','Arcane Mirror','Volt Controller','Solar Lamp'],Legendary:['Titan Gaming PC','Royal Arcade','Dragon Bike','Celestial Camera','Thunder Drone'],Mythical:['Cosmic Headphones','Infinity Phone','Galaxy Skateboard','Eternal Camera','Mythic Drone'],God:['Godly Controller','Divine Forge Hammer','Celestial Backpack','Omega Drone','Godspeed Shoes'],Divine:['Divine Camera','Infinity Headphones','Eternal Skateboard','Divine Phone','Creator Lamp']};
+const shopPrices={Common:100,Rare:250,Epic:500,Legendary:1000,Mythical:2500,God:5000,Divine:10000};
+function shopRarity(i){return ['Common','Common','Rare','Rare','Epic','Legendary','Mythical','God','Divine'][i]||'Common'}
+function makeShopOffer(rarity,index){let pool=shopPools[rarity],name=pool[(state.shop.seed+index*7)%pool.length],id='shop-'+state.shop.seed+'-'+index;let seed=hash(name+id),mult={Common:1,Rare:1.15,Epic:1.32,Legendary:1.55,Mythical:1.85}[rarity];return {id,name,type:typeForItem(name),rarity,ability:abilityForItem(name,id),hp:Math.round((90+seed%35)*mult),atk:Math.round((19+seed%20)*mult),def:Math.round((17+seed%20)*mult),price:shopPrices[rarity],emoji:emojis[seed%emojis.length]}}
+function ensureShop(){if(!state.shop.offers||state.shop.offers.length!==9)state.shop.offers=Array.from({length:9},(_,i)=>makeShopOffer(shopRarity(i),i))}
+function renderShop(){ensureShop();document.getElementById('shopCoins').textContent='🪙 '+state.stats.coins;document.getElementById('shopCards').innerHTML=state.shop.offers.map(o=>`<div class="card ${o.rarity.toLowerCase()}"><div class="pic">${o.emoji}</div><div class="body"><b>${esc(o.name)}</b><div class="tag">${o.type} • ${o.rarity}</div><div class="statrow"><span>❤️ ${o.hp}</span><span>⚔️ ${o.atk}</span><span>🛡️ ${o.def}</span></div><div class="tag">✨ ${esc(o.ability)}</div><div class="statrow"><span>Level 1/${maxCardLevel(o.rarity)}</span><b>🪙 ${o.price}</b></div><button class="gold" style="width:100%;margin-top:8px" data-action="buy-shop" data-id="${o.id}">${state.stats.coins>=o.price?'🛒 Buy Card':'🔒 Need '+o.price}</button></div></div>`).join('')}
+function buyShop(id){ensureShop();let o=state.shop.offers.find(x=>x.id===id);if(!o)return;if(state.stats.coins<o.price){toast('Not enough coins');return}state.stats.coins-=o.price;let c={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),name:o.name,type:o.type,rarity:o.rarity,ability:o.ability,hp:o.hp,atk:o.atk,def:o.def,level:1,xp:0,uses:0,img:'',source:'shop',emoji:o.emoji};state.cards.unshift(c);state.stats.created++;if(c.rarity==='Mythical')state.stats.mythical++;state.shop.offers=state.shop.offers.filter(x=>x.id!==id);while(state.shop.offers.length<9){let i=state.shop.offers.length;state.shop.offers.push(makeShopOffer(shopRarity(i),i))}checkMissions();save();go('shop');toast('Bought '+c.name+'!')}
+function refreshShop(){if(state.stats.coins<25){toast('You need 25 coins');return}state.stats.coins-=25;state.shop.seed++;state.shop.offers=[];ensureShop();save();go('shop');toast('Shop refreshed!')}
+function renderCollection(){document.getElementById('collectionCount').textContent=state.cards.length+' cards collected';document.getElementById('cards').innerHTML=state.cards.length?state.cards.map(c=>cardHTML(c)).join(''):'<div class="panel">No cards yet. Create your first card!</div>'}
+function syncActiveDeck(){state.deck=state.decks[state.activeDeck]||[];state.decks[state.activeDeck]=state.deck}
+function toggleDeck(id){syncActiveDeck();let i=state.deck.indexOf(id);if(i>=0)state.deck.splice(i,1);else if(state.deck.length<60)state.deck.push(id);else{toast('Deck limit is 60 cards');return}save();renderDeck()}
+function renderDeck(){syncActiveDeck();let names=Object.keys(state.decks),sel=document.getElementById('deckSelect');if(sel)sel.innerHTML=names.map(n=>`<option value="${esc(n)}" ${n===state.activeDeck?'selected':''}>${esc(n)}</option>`).join('');let d=state.deck.map(getCard).filter(Boolean);document.getElementById('deckInfo').innerHTML=`<div class="statrow"><b>${esc(state.activeDeck)} • ${d.length}/60 cards</b><span class="muted">${names.length} saved deck${names.length===1?'':'s'}</span></div>`;document.getElementById('deckCards').innerHTML=state.cards.length?state.cards.map(c=>cardHTML(c,{button:'toggle-deck',label:state.deck.includes(c.id)?'➖ Remove from Deck':'➕ Add to Deck'})).join(''):'<div class="panel">Create cards first.</div>'}
+function newDeck(){let n=1,name='Deck '+n;while(state.decks[name]){n++;name='Deck '+n}state.decks[name]=[];state.activeDeck=name;syncActiveDeck();save();renderDeck();toast(name+' created!')}
+function renameDeck(){let old=state.activeDeck,name=prompt('Name this deck:',old);if(name===null)return;name=name.trim().slice(0,24);if(!name||name===old)return;if(state.decks[name]){toast('A deck with that name already exists');return}state.decks[name]=state.decks[old];delete state.decks[old];state.activeDeck=name;syncActiveDeck();save();renderDeck();toast('Deck renamed!')}
+function deleteDeck(){let names=Object.keys(state.decks);if(names.length<=1){toast('Keep at least one deck');return}let old=state.activeDeck;if(!confirm('Delete '+old+'?'))return;delete state.decks[old];state.activeDeck=Object.keys(state.decks)[0];syncActiveDeck();save();renderDeck();toast('Deck deleted')}
+function selectDeck(name){if(!state.decks[name])return;state.activeDeck=name;syncActiveDeck();save();renderDeck();toast('Switched to '+name)}
+function cloneForBattle(c){return JSON.parse(JSON.stringify(c))}
+function currentF(side){let b=state.battle, p=b&&b[side];return p?p.lineup[p.idx]:null}
+function awardBattleCoins(amount,reason){state.stats.coins+=amount;toast('+'+amount+' coins'+(reason?' • '+reason:''));save()}
+function finishPlayerBattle(winner){let b=state.battle;if(!b)return;if(winner===1){state.stats.playerWins++;state.stats.questXP+=25;awardBattleCoins(60,'Battle win +25 Quest XP')}else awardBattleCoins(20,'Battle reward');b.log=winner===1?'Player 1 wins!':'Player 2 wins!';b.over=true;checkMissions();save();renderBattle()}
+function randomLineup(exclude){let ids=state.deck.slice();if(ids.length<2)ids=Object.keys(state.cards.length?Object.fromEntries(state.cards.map(c=>[c.id,c])):{});let pool=shuffle(ids.filter(id=>!exclude.includes(id)));return pool.slice(0,Math.min(5,pool.length)).map(getCard).filter(Boolean).map(cloneForBattle)}
+function startBattle(){syncActiveDeck();if(state.deck.length<2){toast('Add at least 2 cards to your active deck');return}let p1ids=shuffle(state.deck).slice(0,Math.min(5,state.deck.length));let others=state.cards.map(c=>c.id).filter(id=>!p1ids.includes(id));let p2ids=shuffle((others.length?others:state.deck)).slice(0,Math.min(5,state.deck.length));state.battle={mode:'player',turn:1,p1:{lineup:p1ids.map(getCard).filter(Boolean).map(cloneForBattle),idx:0},p2:{lineup:p2ids.map(getCard).filter(Boolean).map(cloneForBattle),idx:0},log:'Player 1 starts. Pass the phone after each move.',over:false};save();go('battle')}
+function attackEffect(card,ability){let k=keyForItem(card.name+' '+ability),icons={shoe:'👟💥',plant:'🌿⚡',toaster:'🍞🔥',lamp:'💡✨',book:'📚🌪️',arcade:'🕹️💫',phone:'📱⚡',computer:'💻⚡',keyboard:'⌨️💥',mouse:'🖱️💨',controller:'🎮💥',cup:'🥤💦',bottle:'🍼💦',chair:'🪑💥',table:'🪵💥',backpack:'🎒💨',key:'🔑✨',remote:'📺⚡',mirror:'🪞✨',ball:'⚽💨',headphones:'🎧🔊',camera:'📷✨',drone:'🚁💨',skateboard:'🛹💨',umbrella:'☂️🌪️',watch:'⌚⏱️',bike:'🚲💨',generic:'💥✨'};let fx=document.createElement('div');fx.className='attackfx '+k;fx.innerHTML=(icons[k]||'💥✨')+'<span>'+esc(ability||'Attack')+'</span>';document.body.appendChild(fx);setTimeout(()=>fx.remove(),750)}
+function attack(){if(!state.battle||state.battle.over)return;let b=state.battle;if(b.mode==='boss'){bossMove(1.15);return}let me=currentF('p'+b.turn),enemy=currentF('p'+(b.turn===1?2:1));if(!me||!enemy)return;let dmg=Math.max(5,me.atk-Math.floor(enemy.def*.45)+Math.floor(Math.random()*9));enemy.hp-=dmg;recordUseBattle(me);attackEffect(me,'Basic '+keyForItem(me.name)+' attack');b.log='Player '+b.turn+' attacked for '+dmg+' damage.';if(enemy.hp<=0){b['p'+(b.turn===1?2:1)].idx++;if(b['p'+(b.turn===1?2:1)].idx>=b['p'+(b.turn===1?2:1)].lineup.length){finishPlayerBattle(b.turn);return}b.log+=' Next card enters!';}b.turn=b.turn===1?2:1;save();renderBattle()}
+function doAbility(){if(!state.battle||state.battle.over)return;let b=state.battle;if(b.mode==='boss'){bossMove(1.3);return}let me=currentF('p'+b.turn),enemy=currentF('p'+(b.turn===1?2:1));if(!me||!enemy)return;let dmg=Math.max(8,me.atk+12-Math.floor(enemy.def*.3)+Math.floor(Math.random()*12));enemy.hp-=dmg;recordUseBattle(me);attackEffect(me,me.ability);b.log=me.name+' used '+me.ability+' for '+dmg+' damage.';if(enemy.hp<=0){b['p'+(b.turn===1?2:1)].idx++;if(b['p'+(b.turn===1?2:1)].idx>=b['p'+(b.turn===1?2:1)].lineup.length){finishPlayerBattle(b.turn);return}}b.turn=b.turn===1?2:1;save();renderBattle()}
+function recordUseBattle(f){let c=getCard(f.id);if(!c)return;c.uses++;state.stats.uses++;addXP(c,15);f.level=c.level;f.atk=c.atk;f.def=c.def;f.hp=Math.min(f.hp,c.hp);checkMissions()}
+function bossMenu(){let a=document.getElementById('battleArea'),L=accountLevel().lvl;a.innerHTML='<div class="panel"><h3>👑 Choose a Boss</h3><p class="muted">Bosses scale with your account level. Higher level = stronger boss. God and Divine cards are the rarest tiers.</p><div class="bosslist">'+bosses.map(base=>{let b=bossScaled(base);return `<div class="boss"><b>${b.name}</b><div class="muted">${b.type} • ❤️ ${b.hp} • ⚔️ ${b.atk} • 🛡️ ${b.def}</div><div class="tag">Your Account Level: ${L} • Difficulty x${b.scale.toFixed(2)}</div><button class="gold" style="margin-top:8px" data-action="fight-boss" data-id="${b.id}">Fight • Reward ${b.reward} coins</button></div>`}).join('')+'</div></div>'}
+function startBoss(id){syncActiveDeck();if(state.deck.length<1){toast('Add at least 1 card to your active deck');return}let boss=bosses.find(x=>x.id===id);if(!boss)return;boss=bossScaled(boss);let lineup=shuffle(state.deck).slice(0,Math.min(5,state.deck.length)).map(getCard).map(cloneForBattle);state.battle={mode:'boss',boss, bossHP:boss.hp, player:{lineup,idx:0},log:'Choose Attack or Ability.',over:false};save();go('battle')}
+function bossMove(mult){let b=state.battle,c=b.player.lineup[b.player.idx];if(!c)return;let dmg=Math.max(8,Math.round((b.boss.atk-Math.floor(c.def*.35)+Math.random()*8)*mult));b.bossHP-=Math.max(10,Math.round(c.atk*.8));recordUseBattle(c);attackEffect(c,c.ability);if(b.bossHP<=0){state.stats.bossWins++;state.stats.coins+=b.boss.reward;state.stats.questXP+=40;b.log='Boss defeated! +'+b.boss.reward+' coins and 40 Quest XP.';b.over=true;checkMissions();save();renderBattle();return}c.hp-=dmg;b.log='The '+b.boss.name+' struck for '+dmg+' damage.';if(c.hp<=0){b.player.idx++;if(b.player.idx>=b.player.lineup.length){b.log='Your team was defeated. +25 coins for battling.';state.stats.coins+=25;b.over=true}else b.log+=' Your next card enters.'}save();renderBattle()}
+function renderBattle(){let a=document.getElementById('battleArea'),b=state.battle;if(!b){if(!a.innerHTML||a.innerHTML.includes('battle is over'))a.innerHTML='<div class="panel"><h3>Ready?</h3><p class="muted">Choose Pass & Play for a randomized two-player match or Fight Boss for solo play.</p></div>';return}if(b.mode==='boss'){let c=b.player.lineup[b.player.idx];a.innerHTML=`<div class="battlebox"><div class="turn">SOLO BOSS • ${esc(b.boss.name)}</div><div class="statrow"><span>Boss ❤️ ${Math.max(0,b.bossHP)}/${b.boss.hp}</span><span>Player ❤️ ${Math.max(0,c.hp)}/${c.hp+c.def+60}</span></div><div class="bar"><div class="fill" style="width:${Math.max(0,b.bossHP)/b.boss.hp*100}%"></div></div><div class="fighter" style="margin-top:12px"><div>${cardHTML(c)}</div><div class="panel"><h3>${esc(b.boss.name)}</h3><div class="muted">${b.boss.type}</div><div>⚔️ ${b.boss.atk} &nbsp; 🛡️ ${b.boss.def}</div><p>${esc(b.boss.ability)}</p></div></div><p class="muted">${esc(b.log)}</p><div class="grid"><button class="primary" data-action="attack">⚔️ Attack</button><button class="gold" data-action="ability">✨ Ability</button></div></div>`;return}let p1=currentF('p1'),p2=currentF('p2');a.innerHTML=`<div class="battlebox"><div class="turn">PLAYER ${b.turn} TURN</div><p class="muted">${esc(b.log)}</p><div class="fighter"><div>${cardHTML(p1)}</div><div>${cardHTML(p2)}</div></div><div class="grid" style="margin-top:10px"><button class="primary" data-action="attack">⚔️ Attack</button><button class="gold" data-action="ability">✨ Ability</button></div><button class="btn" style="width:100%;margin-top:8px" data-action="reveal">🔄 Pass Phone / Reveal Next Turn</button></div>`}
+function renderAll(){renderProgress();renderMissions();renderCollection();renderDeck();renderBattle();renderShop()}
+function buttonTarget(el, attr){
+  while(el && el !== document.body){
+    if(el.dataset && el.dataset[attr] !== undefined) return el;
+    el=el.parentElement;
+  }
+  return null;
+}
+function handleClick(e){
+  let goBtn=buttonTarget(e.target,'go');
+  if(goBtn){ e.preventDefault(); go(goBtn.dataset.go); return; }
+  let b=buttonTarget(e.target,'action');
+  if(!b) return;
+  e.preventDefault();
+  let a=b.dataset.action;
+  try{
+    if(a==='make-card') makeCard();
+    else if(a==='ai-card') aiGenerate();
+    else if(a==='toggle-deck') toggleDeck(b.dataset.id);
+   else if(a==='new-deck') newDeck();
+   else if(a==='rename-deck') renameDeck();
+   else if(a==='delete-deck') deleteDeck();
+    else if(a==='save-deck'){save();toast('Deck saved!')}
+    else if(a==='start-battle') startBattle();
+    else if(a==='attack') attack();
+    else if(a==='ability') doAbility();
+    else if(a==='reveal'){let x=state.battle;if(x&&x.mode==='player'){x.log='Pass the phone. Player '+x.turn+' can choose a move.';save();renderBattle();}}
+    else if(a==='boss-menu') bossMenu();
+    else if(a==='fight-boss') startBoss(b.dataset.id);
+    else if(a==='claim') claimMission(b.dataset.id);
+    else if(a==='buy-shop') buyShop(b.dataset.id);
+    else if(a==='refresh-shop') refreshShop();
+  }catch(err){ console.error(err); toast('Something went wrong — try again'); }
+}
+function initItemQuest(){
+  document.addEventListener('change',e=>{if(e.target&&e.target.id==='deckSelect')selectDeck(e.target.value)},false);
+  document.addEventListener('click',handleClick,false);
+  let photo=document.getElementById('photo');
+  if(photo) photo.addEventListener('change',handlePhoto,false);
+  renderAll();
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initItemQuest); else initItemQuest();
+</script>
+</body>
+</html>
