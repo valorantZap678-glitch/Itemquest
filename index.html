@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b12">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg">
+<title>ItemQuest • Gem Summoning</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#090b12;color:#fff;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{border:0;border-radius:14px;padding:12px 15px;font-weight:800;cursor:pointer}input{width:100%;padding:12px;border-radius:12px;border:1px solid #34384a;background:#111521;color:#fff}.app{max-width:900px;margin:auto;padding:16px 14px 90px}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.brand{font-size:25px;font-weight:1000}.muted{color:#aab1c5}.small{font-size:12px}.nav{display:flex;gap:8px;overflow:auto;padding-bottom:8px}.nav button{white-space:nowrap;background:#171b29;color:#cdd3e5}.nav button.active{background:#6d5dfc;color:#fff}.screen{display:none}.screen.active{display:block}.panel{background:#111521;border:1px solid #292e40;border-radius:18px;padding:15px;margin:12px 0}.hero{padding:20px;background:linear-gradient(135deg,#171a2b,#10121c);border:1px solid #30364e;border-radius:22px}.hero h1{margin:0 0 8px;font-size:32px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.btn{background:#252b3b;color:#fff}.primary{background:#6d5dfc;color:#fff}.good{background:#18a974;color:#fff}.danger{background:#c83e56;color:#fff}.gold{background:#c99522;color:#fff}.mission{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px;border-radius:14px;background:#171b29;margin:8px 0}.bar{height:9px;background:#292e40;border-radius:99px;overflow:hidden}.fill{height:100%;background:#6d5dfc}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{position:relative;overflow:hidden;border-radius:18px;border:1px solid #3a4054;background:#171b29;min-height:260px}.card .pic{height:145px;background:#0d1018 center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:55px}.card .body{padding:10px}.badge{display:inline-block;padding:4px 8px;border-radius:99px;background:#282e40;font-size:11px;font-weight:900}.mythical{box-shadow:0 0 0 2px #e85dff,0 0 22px rgba(232,93,255,.35)}.god{box-shadow:0 0 0 2px #ff9f43,0 0 25px rgba(255,159,67,.45)}.divine{box-shadow:0 0 0 2px #fff,0 0 30px rgba(255,255,255,.55);animation:divinePulse 1.8s ease-in-out infinite}.god{animation:godPulse 2.2s ease-in-out infinite}.legendary{box-shadow:0 0 0 2px #f5c451}.epic{box-shadow:0 0 0 2px #a879ff}.rare{box-shadow:0 0 0 2px #54a8ff}.common{box-shadow:0 0 0 1px #4a5268}.statrow{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin:5px 0}.tag{font-size:11px;color:#b9c0d4}.upload{display:block;text-align:center;padding:15px;border:1px dashed #555d75;border-radius:14px;background:#171b29;font-weight:900}.upload input{display:none}.preview{max-width:100%;max-height:220px;border-radius:14px;margin-top:10px;display:block}.battlebox{padding:14px;border-radius:18px;background:#111521;border:1px solid #30364a}.fighter{display:grid;grid-template-columns:1fr 1fr;gap:10px}.turn{font-weight:1000;color:#d9d4ff}.bosslist{display:grid;gap:10px}.boss{padding:14px;border:1px solid #3a4054;border-radius:16px;background:#171b29}.attackfx{position:fixed;left:50%;top:48%;transform:translate(-50%,-50%) scale(.7);z-index:30;pointer-events:none;font-size:70px;font-weight:1000;text-align:center;animation:attackPop .7s ease-out forwards;text-shadow:0 4px 20px #000}.attackfx span{display:block;font-size:18px;margin-top:4px}.attackfx.shoe{animation:stomp .7s ease-out forwards}.attackfx.drone,.attackfx.skateboard{animation:dash .7s ease-out forwards}.attackfx.book,.attackfx.camera{animation:flash .7s ease-out forwards}.attackfx.plant{animation:grow .7s ease-out forwards}@keyframes attackPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}35%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}100%{opacity:0;transform:translate(-50%,-55%) scale(1)}}@keyframes stomp{0%{opacity:0;transform:translate(-50%,-80%) scale(.5)}45%{opacity:1;transform:translate(-50%,-50%) scale(1.25)}100%{opacity:0;transform:translate(-50%,-35%) scale(1)}}@keyframes dash{0%{opacity:0;transform:translate(-100%,-50%) scale(.7)}45%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}100%{opacity:0;transform:translate(40%,-50%) scale(.9)}}@keyframes flash{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}25%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.05)}}@keyframes grow{0%{opacity:0;transform:translate(-50%,20%) scale(.5)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}100%{opacity:0;transform:translate(-50%,-65%) scale(1)}}@keyframes godPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22)}}@keyframes divinePulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.35)}}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#fff;color:#111;padding:11px 15px;border-radius:99px;font-weight:800;display:none;z-index:20;max-width:90%}.footer{margin-top:20px;color:#727b92;text-align:center;font-size:11px}@media(min-width:700px){.cards{grid-template-columns:repeat(4,minmax(0,1fr))}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+.campaign-map{overflow:hidden}.map-track{position:relative;display:flex;justify-content:space-between;align-items:center;gap:4px;margin:18px 2px 8px;padding:18px 4px;border-radius:18px;background:linear-gradient(90deg,#17213a,#273b2b,#342447);min-height:62px}.map-track:before{content:'';position:absolute;left:12px;right:12px;top:50%;height:4px;background:#66708a;border-radius:5px}.map-node{position:relative;z-index:2;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#252b3a;border:2px solid #66708a;font-size:11px}.map-node.done{background:#1e8f63;border-color:#7cf0bd}.map-node.current{background:#d69b24;border-color:#ffe29b;transform:scale(1.18)}.campaign-avatar{position:absolute;z-index:5;top:6px;width:48px;height:48px;border-radius:50%;border:3px solid #fff;background:#202636;display:flex;align-items:center;justify-content:center;font-size:28px;background-size:cover;background-position:center;box-shadow:0 5px 16px rgba(0,0,0,.35);transition:left .7s ease;left:calc((100% - 8px) * (var(--hero-progress,0)))}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><div><div class="brand">⚔️ ItemQuest</div><div class="muted small">Turn everyday objects into heroes.</div></div><div style="display:flex;gap:7px;align-items:center"><div class="badge" id="coinBadge">🪙 0</div><div class="badge" id="gemBadge">💎 0</div><div class="badge" id="levelBadge">LV 1</div></div></div>
+  <div class="nav" id="nav">
+    <button data-go="home" class="active">Home</button><button data-go="scan">Create</button><button data-go="collection">Collection</button><button data-go="deck">Deck</button><button data-go="battle">Battle</button><button data-go="campaign">🗺️ Campaign</button><button data-go="artifacts">🧿 Artifacts</button><button data-go="summon">✨ Summon</button><button data-go="shop">🛒 Shop</button>
+  </div>
+
+  <section id="home" class="screen active">
+    <div class="hero"><h1>Build your ItemQuest.</h1><p class="muted">Create cards, complete missions, level up your favorites, and defeat bosses — all on one phone.</p><div class="grid"><button class="primary" data-go="scan">📸 Create Card</button><button class="gold" data-go="battle">⚔️ Start Battle</button></div></div>
+    <div class="panel" style="border:2px solid #8b5cf6;background:linear-gradient(135deg,rgba(139,92,246,.14),rgba(34,211,238,.10))">
+      <div class="top"><div><h2 style="margin:0">💎 Gems & Divine Summoning</h2><p class="muted small" style="margin-bottom:0">Earn Gems by clearing Campaign stages. Save 500 💎 to summon a guaranteed Divine card.</p></div><div class="badge" id="homeGems">💎 0</div></div>
+      <div class="grid" style="margin-top:12px"><button class="primary" data-go="campaign">🗺️ Earn Gems in Campaign</button><button class="gold" data-go="summon">✨ Open Divine Summon</button></div>
+      <p class="small muted" style="text-align:center;margin:10px 0 0">Normal stage: +20 💎 • Boss: +50 💎 • Final Boss: +100 💎 • Summon: 500 💎</p>
+    </div>
+    <div class="panel"><h3>🎯 Missions</h3><div id="missionsHome"></div><button class="btn" data-go="missions">View all missions</button></div>
+    <div class="panel"><h3>📊 Progress</h3><div id="progressHome"></div></div><div class="panel"><h3>🛒 Game Shop</h3><p class="muted">Spend coins earned from battles and quests on new cards.</p><button class="gold" data-go="shop">Open Shop</button></div>
+  </section>
+
+  <section id="scan" class="screen">
+    <div class="panel"><h2>📸 Create a Card</h2><p class="muted">Take a photo and edit its name before creating the card.</p>
+      <label class="upload">📷 TAKE / CHOOSE PHOTO<input id="photo" type="file" accept="image/*" capture="environment"></label>
+      <img id="preview" class="preview" style="display:none">
+      <div id="nameBox" style="display:none;margin-top:10px"><label class="muted small" for="cardName">CARD NAME</label><input id="cardName" maxlength="28" placeholder="Example: My Blue Backpack"></div>
+      <div class="grid" style="margin-top:10px"><button class="primary" data-action="make-card">✨ CREATE CARD</button><button class="gold" data-action="ai-card">🤖 AI GENERATE CARD</button></div>
+    </div>
+    <div class="panel"><h3>🤖 AI Card Generator</h3><p class="muted small">The free GitHub Pages version uses an offline generator, so it works without an API key or paid AI service. Type an idea and ItemQuest will build an original card.</p><input id="aiPrompt" placeholder="Example: glowing gaming headset"><button class="primary" style="margin-top:10px;width:100%" data-action="ai-card">Generate from idea</button></div>
+  </section>
+
+  <section id="collection" class="screen"><div class="top"><div><h2 style="margin:0">🗃️ Collection</h2><div class="muted small" id="collectionCount"></div></div><button class="btn" data-action="ai-card">🤖 AI Card</button></div><div id="cards" class="cards"></div></section>
+
+  <section id="deck" class="screen"><div class="panel"><h2>🃏 Deck Builder</h2><p class="muted">Build and save multiple decks. Each deck can hold up to <b>60 cards</b>. Card levels are saved globally, so a leveled card stays leveled in every deck.</p><div class="grid"><select id="deckSelect" class="input" aria-label="Choose deck"></select><button class="primary" data-action="new-deck">➕ New Deck</button></div><div class="grid" style="margin-top:8px"><input id="deckNameInput" maxlength="24" placeholder="Deck name"><button class="secondary" data-action="rename-deck">✏️ Rename / Save Name</button></div><div class="grid" style="margin-top:8px"><button class="danger" data-action="delete-deck">🗑️ Delete Deck</button><button class="good" data-action="save-deck">💾 Save Deck</button></div><div id="deckInfo"></div></div><div id="deckCards" class="cards"></div></section>
+
+  <section id="battle" class="screen">
+    <div class="panel"><h2>⚔️ Battle Arena</h2><div class="grid"><button class="primary" data-action="start-battle">👥 Pass & Play</button><button class="gold" data-action="boss-menu">👑 Fight Boss</button></div><p class="muted small">Pass-and-play uses randomized lineups so both sides don't receive the exact same cards.</p></div>
+    <div id="battleArea"></div>
+  </section>
+
+  <section id="missions" class="screen"><div class="panel"><h2>🎯 Missions</h2><p class="muted">Finish quests to earn Quest XP and coins.</p><div id="missionsAll"></div></div></section>
+  
+<section id="campaign" class="screen"><div class="panel"><h2>🗺️ ItemQuest Campaign</h2><p class="muted">Travel across the Item Realm. Each region gets tougher, with new enemies, rewards, and boss fights.</p><div id="campaignProgress"></div></div><div id="campaignMap"></div><div id="campaignBattle"></div></section>
+<section id="artifacts" class="screen"><div class="panel"><h2>🧿 Artifact Forge</h2><p class="muted">Equip hidden artifacts to your cards. Artifacts use Head, Body, Arms, Earrings, Legs, and Feet slots. Their bonuses affect battles, but the artifacts stay hidden from the card face.</p><div class="statrow"><b>Artifact Shards</b><span id="artifactCoins">🪙 0</span></div><div class="grid"><button class="gold" data-action="find-artifact">🔮 Find Artifact • 40 coins</button><button class="secondary" data-action="artifact-xp">✨ Train Equipped • 25 coins</button></div></div><div class="panel"><h3>🧑‍🚀 Equip Artifacts</h3><p class="muted small">Choose a card, then equip one artifact in each slot.</p><select id="artifactCardSelect" class="input"></select><div id="equipSlots"></div></div><div class="panel"><h3>🎒 Artifact Inventory</h3><div id="artifactInventory" class="cards"></div></div></section>
+<section id="summon" class="screen"><div class="panel" style="text-align:center"><h2>✨ Divine Summoning</h2><p class="muted">Spend rare Gems to call forth a guaranteed <b>Divine</b> card. Gems are earned slowly by clearing Campaign stages, so every summon is a big moment.</p><div class="badge" id="summonGems" style="font-size:18px;margin:8px auto">💎 0 Gems</div><div style="font-size:82px;margin:14px 0">🔮</div><h3>Divine Summon</h3><p class="muted small">Guaranteed Divine rarity • 500 Gems</p><button class="gold" data-action="summon-divine" style="width:100%;max-width:420px">✨ Summon Divine Card • 500 Gems</button></div><div id="summonResult"></div></section>
+<section id="shop" class="screen"><div class="panel"><div class="top"><div><h2 style="margin:0">🛒 Game Shop</h2><div class="muted small">Buy new cards or sell cards from your collection for coins. God and Divine cards can appear too.</div></div><div class="badge" id="shopCoins">🪙 0</div></div><h3>🛍️ Buy Cards</h3><div id="shopCards" class="cards"></div><button class="secondary" data-action="refresh-shop" style="margin-top:10px;width:100%">🔄 Refresh Shop • 25 coins</button></div><div class="panel"><div class="top"><div><h2 style="margin:0">💰 Sell Shop</h2><div class="muted small">Sell cards you no longer want. Higher rarities and leveled cards are worth more.</div></div><div class="badge">${state.cards.length} cards</div></div><div id="sellCards" class="cards"></div></div></section>
+  <div class="footer">ItemQuest v2.0 • 💎 Campaign Gems • ✨ Divine Summoning • 🧿 Artifacts</div>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+const KEY='itemquest_v5';
+const types=['Heat','Water','Nature','Energy','Earth','Arcane','Comfort','Metal','Air','Light'];
+const rarities=['Common','Rare','Epic','Legendary','Mythical','God','Divine'];
+const emojis=['🍞','🌱','🕹️','📚','💡','📱','💻','⌨️','🖱️','🎮','🥤','🪑','🎒','🔑','🪞','⚽','👟','🎧','⌚','📷','🧸','🛋️','🚲','🧩'];
+const abilities={
+ toaster:['Heat Burst','Toast Shield','Crisp Charge','Breakfast Blaze'],plant:['Root Guard','Vine Whip','Leaf Mend','Sun Sip'],lamp:['Glow Guard','Flash Beam','Night Light','Radiant Pulse'],book:['Page Storm','Knowledge Wall','Chapter Heal','Bookmark Strike'],arcade:['Combo Rush','Pixel Shield','High Score','Boss Button'],phone:['Signal Surge','Quick Call','Battery Boost','Screen Flash'],computer:['System Boost','Firewall','Overclock','Data Burst'],keyboard:['Key Smash','Shortcut','Rapid Type','Shift Guard'],mouse:['Pointer Dash','Click Burst','Cursor Dodge','Drag Strike'],controller:['Combo Pad','Trigger Blast','Vibration Guard','Final Button'],cup:['Sip Shield','Splash Hit','Refill','Hot Drink'],bottle:['Bottle Bash','Hydro Guard','Refill Rush','Cap Toss'],chair:['Seat Guard','Leg Sweep','Backrest Bash','Comfort Heal'],table:['Table Slam','Flat Guard','Four Legs','Surface Shield'],shoe:['Sprint Kick','Lace Trap','Fast Step','Sole Guard'],backpack:['Packed Punch','Pocket Guard','Heavy Load','Supply Heal'],key:['Unlock','Key Slash','Master Key','Lock Guard'],remote:['Channel Zap','Mute Shield','Power Button','Rewind'],mirror:['Reflect','Double Image','Shine Back','Glass Guard'],ball:['Bounce Blast','Ricochet','Curve Shot','Ball Guard'],headphones:['Sound Wave','Bass Blast','Noise Shield','Echo Pulse'],camera:['Snapshot Strike','Flash Guard','Zoom Burst','Focus Lock'],drone:['Drone Dive','Propeller Rush','Sky Scout','Air Drop'],skateboard:['Kickflip Crash','Board Dash','Rail Guard','Rolling Rush'],umbrella:['Rain Guard','Umbrella Bash','Storm Shield','Wind Spin'],watch:['Time Check','Second Hand','Clock Shield','Time Pulse'],bike:['Pedal Rush','Wheel Bash','Handlebar Guard','Turbo Ride'],generic:['Object Bash','Sturdy Guard','Mystery Power','Quick Move']
+};
+const bosses=[
+ {id:'circuit',name:'Circuit Overlord',type:'Energy',hp:420,atk:72,def:44,ability:'Overclock Storm',reward:120},
+ {id:'wildwood',name:'Wildwood Colossus',type:'Nature',hp:500,atk:64,def:58,ability:'Ancient Roots',reward:150},
+ {id:'void',name:'Void Librarian',type:'Arcane',hp:460,atk:78,def:40,ability:'Forbidden Chapter',reward:180}
+];
+const missions=[
+ {id:'create3',name:'First Collection',desc:'Create 3 cards',goal:3,reward:40,coins:75,fn:s=>s.created},
+ {id:'battle3',name:'Battle Ready',desc:'Win 3 player battles',goal:3,reward:60,coins:150,fn:s=>s.playerWins},
+ {id:'boss1',name:'Boss Hunter',desc:'Defeat 1 boss',goal:1,reward:80,coins:200,fn:s=>s.bossWins},
+ {id:'use10',name:'Practice Makes Power',desc:'Use cards in 10 attacks or abilities',goal:10,reward:70,coins:125,fn:s=>s.uses},
+ {id:'mythic',name:'Mythical Discovery',desc:'Create or obtain a Mythical card',goal:1,reward:120,coins:300,fn:s=>s.mythical},
+ {id:'level5',name:'Power Up',desc:'Level a card to level 5',goal:1,reward:100,coins:175,fn:s=>s.level5}
+];
+function fresh(){return {cards:[],deck:[],decks:{'Starter Deck':[]},activeDeck:'Starter Deck',stats:{created:0,playerWins:0,bossWins:0,uses:0,mythical:0,level5:0,questXP:0,coins:0,gems:0,criticals:0},missions:{},lastBoss:null,battle:null,shop:{seed:1,offers:[]},artifacts:[],artifactSelectedCard:null,campaignHero:null}}
+let state=load();
+function load(){try{let x=JSON.parse(localStorage.getItem(KEY)); if(x)return migrate(x)}catch(e){} return fresh()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));return true}catch(e){console.error(e);toast('Save failed — browser storage is full');return false}finally{renderAll()}}
+function migrate(x){x.cards=x.cards||[];x.artifacts=x.artifacts||[];x.artifactSelectedCard=x.artifactSelectedCard||null;x.campaignHero=x.campaignHero||null;x.artifacts.forEach(normalizeArtifact);x.stats=Object.assign(fresh().stats,x.stats||{});x.stats.coins=x.stats.coins||0;x.stats.gems=x.stats.gems||0;x.stats.criticals=x.stats.criticals||0;x.missions=x.missions||{};x.shop=Object.assign(fresh().shop,x.shop||{});x.cards=x.cards.map(normalize);if(!x.decks||typeof x.decks!=='object'||Array.isArray(x.decks)){x.decks={'Starter Deck':(x.deck||[])};x.activeDeck='Starter Deck'}x.activeDeck=x.activeDeck&&x.decks[x.activeDeck]?x.activeDeck:Object.keys(x.decks)[0]||'Starter Deck';if(!x.decks[x.activeDeck])x.decks[x.activeDeck]=[];for(const k of Object.keys(x.decks))x.decks[k]=(x.decks[k]||[]).filter(id=>x.cards.some(c=>c.id===id)).slice(0,60);x.deck=x.decks[x.activeDeck];return x}
+function esc(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function hash(s){let h=0;for(let i=0;i<s.length;i++)h=((h<<5)-h+s.charCodeAt(i))|0;return Math.abs(h)}
+function normalize(c){c.artifacts=c.artifacts||{};c.level=c.level||1;c.xp=c.xp||0;c.uses=c.uses||0;c.rarity=c.rarity||'Common';c.atk=c.atk||20;c.def=c.def||20;c.hp=c.hp||100;let max=maxCardLevel(c.rarity);if(c.level>max)c.level=max;return c}
+const artifactSlots=['Head','Body','Arms','Earrings','Legs','Feet'];
+const artifactRarities=['Common','Rare','Epic','Legendary','Mythical'];
+const artifactCaps={Common:10,Rare:15,Epic:20,Legendary:30,Mythical:40};
+const artifactMult={Common:1,Rare:1.35,Epic:1.75,Legendary:2.25,Mythical:3};
+const artifactNames={Head:['Crown of Focus','Signal Visor','Ember Helm'],Body:['Guardian Core','Mystic Cloak','Iron Shell'],Arms:['Power Bracers','Storm Wraps','Titan Grips'],Earrings:['Echo Hoops','Star Studs','Arcane Rings'],Legs:['Runner Greaves','Root Legguards','Void Striders'],Feet:['Swift Boots','Stonewalkers','Sky Steps']};
+function artifactRarity(seed){let r=Math.abs(seed)%100;return r<48?'Common':r<76?'Rare':r<91?'Epic':r<98?'Legendary':'Mythical'}
+function artifactXPNeed(a){return 30+(a.level||1)*18}
+function normalizeArtifact(a){a.id=a.id||('a'+Math.random().toString(36).slice(2));a.slot=a.slot||'Head';a.rarity=a.rarity||'Common';a.level=a.level||1;a.xp=a.xp||0;a.bonus=a.bonus||Math.max(1,Math.round(2*artifactMult[a.rarity]));a.name=a.name||'Mysterious Artifact';return a}
+function artifactBonus(a){return a?Math.round(a.bonus*(1+(a.level-1)*.12)):0}
+function cardArtifacts(c){return (c&&c.artifacts)||{}}
+function artifactStats(c){let out={hp:0,atk:0,def:0};for(const slot of artifactSlots){let id=cardArtifacts(c)[slot];let a=state.artifacts.find(x=>x.id===id);let b=artifactBonus(a);if(!a)continue;if(slot==='Body'||slot==='Legs')out.hp+=b*3;else if(slot==='Arms'||slot==='Head')out.atk+=b;else out.def+=b}return out}
+function gainArtifactXP(c,amount){if(!c)return;let ids=Object.values(cardArtifacts(c));ids.forEach(id=>{let a=state.artifacts.find(x=>x.id===id);if(!a)return;a.xp+=amount;let cap=artifactCaps[a.rarity]||10;while(a.level<cap&&a.xp>=artifactXPNeed(a)){a.xp-=artifactXPNeed(a);a.level++;a.bonus+=Math.max(1,Math.floor(a.bonus*.12));toast(a.name+' reached Level '+a.level+'!')}})}
+function findArtifact(){if(state.stats.coins<40){toast('You need 40 coins');return}state.stats.coins-=40;let seed=Date.now()+Math.random()*9999,r=artifactRarity(seed),slot=artifactSlots[Math.floor(Math.random()*artifactSlots.length)],names=artifactNames[slot],name=names[Math.floor(Math.random()*names.length)];let a=normalizeArtifact({id:'a'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),slot,rarity:r,level:1,xp:0,bonus:Math.max(1,Math.round(3*artifactMult[r])),name});state.artifacts.unshift(a);save();go('artifacts');toast('Found '+r+' '+name+'!')}
+function selectedArtifactCard(){let id=state.artifactSelectedCard||state.campaignHero||state.cards[0]?.id;return state.cards.find(c=>c.id===id)||null}
+function equipArtifact(id,slot){let c=selectedArtifactCard(),a=state.artifacts.find(x=>x.id===id);if(!c||!a)return;if(a.slot!==slot){toast('That artifact belongs in '+a.slot);return}c.artifacts=c.artifacts||{};let old=c.artifacts[slot];if(old===a.id){delete c.artifacts[slot];toast('Artifact unequipped');}else{c.artifacts[slot]=a.id;toast(a.name+' equipped!')}state.artifactSelectedCard=c.id;save();renderArtifacts()}
+function trainEquipped(){if(state.stats.coins<25){toast('You need 25 coins');return}let c=selectedArtifactCard();if(!c){toast('Choose a card first');return}state.stats.coins-=25;gainArtifactXP(c,20);save();renderArtifacts();toast('Equipped artifacts gained XP!')}
+function renderArtifacts(){let sel=document.getElementById('artifactCardSelect');if(!sel)return;sel.innerHTML=state.cards.length?state.cards.map(c=>`<option value="${c.id}" ${selectedArtifactCard()?.id===c.id?'selected':''}>${esc(c.name)} • ${c.rarity}</option>`).join(''):'<option>No cards yet</option>';let c=selectedArtifactCard();let slots=document.getElementById('equipSlots');slots.innerHTML=c?artifactSlots.map(slot=>{let id=cardArtifacts(c)[slot],a=state.artifacts.find(x=>x.id===id);return `<div class="panel" style="margin-top:8px"><div class="statrow"><b>${slot}</b><span>${a?esc(a.name)+' • '+a.rarity+' • LV '+a.level:'Empty'}</span></div>${a?`<div class="muted small">+${artifactBonus(a)} bonus • ${a.xp}/${artifactXPNeed(a)} XP</div><button class="danger" style="margin-top:6px" data-action="unequip-artifact" data-slot="${slot}">Unequip</button>`:'<div class="muted small">Choose a matching artifact below.</div>'}</div>`}).join(''):'<div class="muted">Create a card first.</div>';let inv=document.getElementById('artifactInventory');inv.innerHTML=state.artifacts.length?state.artifacts.map(a=>`<div class="card ${a.rarity.toLowerCase()}"><div class="pic">🧿</div><div class="body"><b>${esc(a.name)}</b><div class="tag">${a.slot} • ${a.rarity}</div><div class="statrow"><span>Level ${a.level}/${artifactCaps[a.rarity]}</span><span>+${artifactBonus(a)}</span></div><div class="bar"><div class="fill" style="width:${Math.min(100,a.xp/artifactXPNeed(a)*100)}%"></div></div><button class="gold" style="width:100%;margin-top:8px" data-action="equip-artifact" data-id="${a.id}" data-slot="${a.slot}">${c&&cardArtifacts(c)[a.slot]===a.id?'Equipped':'Equip to '+a.slot}</button></div></div>`).join(''):'<div class="panel">No artifacts yet. Find your first artifact!</div>'}
+function rarityFromSeed(n){let r=n%1000;return r<500?'Common':r<730?'Rare':r<880?'Epic':r<960?'Legendary':r<990?'Mythical':r<998?'God':'Divine'}
+function typeForItem(name){let s=name.toLowerCase();if(/toaster|oven|stove|candle|heater|hot/.test(s))return'Heat';if(/plant|tree|leaf|flower|grass/.test(s))return'Nature';if(/water|bottle|cup|drink|pool/.test(s))return'Water';if(/phone|computer|keyboard|mouse|controller|arcade|tv|charger|battery/.test(s))return'Energy';if(/rock|stone|table|chair|shoe|ball/.test(s))return'Earth';if(/book|mirror|key|remote/.test(s))return'Arcane';if(/lamp|light|mirror/.test(s))return'Light';if(/backpack|pillow|blanket|couch|bed/.test(s))return'Comfort';if(/metal|pan|fork|spoon/.test(s))return'Metal';if(/fan|kite|paper/.test(s))return'Air';return types[hash(s)%types.length]}
+function keyForItem(name){let s=name.toLowerCase();if(/toaster|oven|stove/.test(s))return'toaster';if(/plant|tree|flower|leaf|cactus/.test(s))return'plant';if(/lamp|light|lantern|flashlight/.test(s))return'lamp';if(/book|notebook|journal|magazine/.test(s))return'book';if(/arcade|game|console/.test(s))return'arcade';if(/phone|smartphone|iphone|android/.test(s))return'phone';if(/computer|laptop|pc/.test(s))return'computer';if(/keyboard/.test(s))return'keyboard';if(/mouse/.test(s))return'mouse';if(/controller|gamepad|joystick/.test(s))return'controller';if(/cup|mug|glass/.test(s))return'cup';if(/bottle|thermos|flask/.test(s))return'bottle';if(/chair|stool/.test(s))return'chair';if(/table|desk/.test(s))return'table';if(/shoe|sneaker|boot|slipper/.test(s))return'shoe';if(/backpack|bag|purse/.test(s))return'backpack';if(/key|keychain/.test(s))return'key';if(/remote/.test(s))return'remote';if(/mirror/.test(s))return'mirror';if(/ball/.test(s))return'ball';if(/headphone|headset|earbud/.test(s))return'headphones';if(/camera|webcam/.test(s))return'camera';if(/drone/.test(s))return'drone';if(/skateboard|skate/.test(s))return'skateboard';if(/umbrella/.test(s))return'umbrella';if(/watch|smartwatch/.test(s))return'watch';if(/bike|bicycle/.test(s))return'bike';return'generic'}
+function abilityForItem(name,id){let a=abilities[keyForItem(name)];return a[hash(name+id)%a.length]}
+function maxCardLevel(rarity){return {Common:20,Rare:30,Epic:50,Legendary:75,Mythical:100,God:125,Divine:150}[rarity]||20}
+function rarityMult(r){return {Common:1,Rare:1.15,Epic:1.32,Legendary:1.55,Mythical:1.85,God:2.2,Divine:2.7}[r]||1}
+function accountLevel(){let total=state.stats.questXP||0,lvl=1,need=100;while(total>=need){total-=need;lvl++;need=100+lvl*25}return {lvl,xp:total,need}}
+function bossScaled(base){let L=accountLevel().lvl;let scale=1+Math.min(2.2,(L-1)*0.075);return Object.assign({},base,{hp:Math.round(base.hp*scale),atk:Math.round(base.atk*(1+(L-1)*0.06)),def:Math.round(base.def*(1+(L-1)*0.055)),accountLevel:L,scale})}
+function levelXP(lvl){return 40+lvl*25}
+function cardPower(c){return c.atk+c.def+Math.floor(c.hp/5)}
+function tierCounted(r){return r==='Mythical'||r==='God'||r==='Divine'}
+function typeAdvantage(a,d){const strong={Heat:'Nature',Nature:'Water',Water:'Heat',Energy:'Water',Earth:'Energy',Arcane:'Energy',Comfort:'Earth',Metal:'Air',Air:'Earth',Light:'Arcane'};if(strong[a]===d)return 1.25;if(strong[d]===a)return .8;return 1}
+function battleDamage(attacker,defender,base,bonus=0){let mult=typeAdvantage(attacker.type,defender.type);let crit=Math.random()<.1;let dmg=Math.max(1,Math.round((base+bonus)*mult));if(crit){dmg=Math.round(dmg*1.5);state.stats.criticals++;}return {dmg,mult,crit}}
+function handlePhoto(e){
+  const file=e&&e.target&&e.target.files&&e.target.files[0];
+  if(!file)return;
+  const preview=document.getElementById('preview');
+  const box=document.getElementById('nameBox');
+  const name=document.getElementById('cardName');
+  if(preview){
+    preview.src=URL.createObjectURL(file);
+    preview.style.display='block';
+  }
+  if(box) box.style.display='block';
+  if(name && !name.value) name.value=file.name.replace(/\.[^.]+$/,'').replace(/[_-]+/g,' ').slice(0,28);
+  window.itemQuestPhotoFile=file;
+  toast('Photo ready — choose a name and create your card!');
+}
+function makeCard(){
+  const name=(document.getElementById('cardName')?.value||'').trim();
+  const file=window.itemQuestPhotoFile;
+  let img='';
+  if(file){
+    try{img=URL.createObjectURL(file)}catch(e){img=''}
+  }
+  createCard(name||'Mystery Item',img,'photo');
+}
+function createCard(name,img,source='photo'){name=(name||'Mystery Item').trim().slice(0,28)||'Mystery Item';let id=Date.now().toString(36)+Math.random().toString(36).slice(2,7);let seed=hash(name+id);let rarity=rarityFromSeed(seed);let mult=rarityMult(rarity);let c={id,name,type:typeForItem(name),rarity,ability:abilityForItem(name,id),hp:Math.round((85+seed%45)*mult),atk:Math.round((18+seed%24)*mult),def:Math.round((16+seed%22)*mult),level:1,xp:0,uses:0,img:img||'',source};state.cards.unshift(c);state.stats.created++;if(tierCounted(rarity))state.stats.mythical++;toast('Created '+name+' — '+rarity+'!');checkMissions();save();go('collection');return c}
+function aiGenerate(){
+ let p=(document.getElementById('aiPrompt')?.value||'').trim();
+ if(!p)p=['Neon Skateboard','Galaxy Backpack','Mystic Headphones','Pocket Drone','Golden Water Bottle','Pixel Camera','Storm Umbrella','Cosmic Lamp'][Math.floor(Math.random()*8)];
+ let clean=p.replace(/[^a-zA-Z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+ let seed=hash(clean+Date.now());
+ let itemKey=keyForItem(clean);
+ let itemNames={toaster:'Toaster',plant:'Plant',lamp:'Lamp',book:'Book',arcade:'Arcade',phone:'Phone',computer:'Computer',keyboard:'Keyboard',mouse:'Mouse',controller:'Controller',cup:'Cup',bottle:'Bottle',chair:'Chair',table:'Table',shoe:'Shoe',backpack:'Backpack',key:'Key',remote:'Remote',mirror:'Mirror',ball:'Ball',headphones:'Headphones',camera:'Camera',drone:'Drone',skateboard:'Skateboard',umbrella:'Umbrella',watch:'Watch',bike:'Bike',generic:'Mystery Item'};
+ let item=itemNames[itemKey]||itemNames.generic;
+ let adjectives=['Titan','Guardian','Phantom','Champion','Golem','Sprite','Overlord','Runner'];
+ let name=(clean.length<=22?clean:item)+' '+adjectives[seed%adjectives.length];
+ if(name.length>28)name=item+' '+adjectives[seed%adjectives.length];
+ let c=createCard(name,'','ai');
+ if(tierCounted(c.rarity))state.stats.mythical--;
+ let aiRarity=rarityFromSeed(seed);
+ c.emoji=emojis[seed%emojis.length];c.rarity=aiRarity;c.type=typeForItem(item+' '+clean);c.ability=abilityForItem(item+' '+clean,c.id);
+ let am=rarityMult(aiRarity);c.hp=Math.round((85+seed%45)*am);c.atk=Math.round((18+seed%24)*am);c.def=Math.round((16+seed%22)*am);
+ if(tierCounted(aiRarity))state.stats.mythical++;
+ toast('AI made '+item+' card: '+c.rarity+' • '+c.ability);checkMissions();save();go('collection');
+}
+function addXP(c,amount){c.xp+=amount;let leveled=false;while(c.xp>=levelXP(c.level)&&c.level<maxCardLevel(c.rarity)){c.xp-=levelXP(c.level);c.level++;leveled=true;if(c.level===5)state.stats.level5=1}let bonus=c.level-1;c.atk+=leveled?3:0;c.def+=leveled?3:0;c.hp+=leveled?8:0;if(leveled)toast(c.name+' reached Level '+c.level+'!')}
+function getCard(id){return state.cards.find(c=>c.id===id)}
+function cardHTML(c,opts={}){let img=c.img?`background-image:url('${c.img}')`:'';let emoji=c.emoji||emojis[hash(c.name)%emojis.length];let cls=c.rarity.toLowerCase();let ab=artifactStats(c);return `<div class="card ${cls}"><div class="pic" style="${img}">${c.img?'':emoji}</div><div class="body"><b>${esc(c.name)}</b><div class="tag">${c.type} • ${c.rarity}</div><div class="statrow"><span>❤️ ${c.hp+ab.hp}</span><span>⚔️ ${c.atk+ab.atk}</span><span>🛡️ ${c.def+ab.def}</span></div><div class="tag">✨ ${esc(c.ability)}</div><div class="statrow"><span>Level ${c.level}/${maxCardLevel(c.rarity)}</span><span>Uses ${c.uses}</span></div><div class="bar"><div class="fill" style="width:${Math.min(100,(c.level>=maxCardLevel(c.rarity)?100:c.xp/levelXP(c.level)*100))}%"></div></div>${opts.button?`<button class="btn" style="width:100%;margin-top:8px" data-action="${opts.button}" data-id="${c.id}">${opts.label||'Add'}</button>`:''}</div></div>`}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));let el=document.getElementById(id);if(el)el.classList.add('active');document.querySelectorAll('#nav [data-go]').forEach(b=>b.classList.toggle('active',b.dataset.go===id));renderAll()}
+function toast(msg){let t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.style.display='none',1800)}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const campaignRegions=[
+{id:'homefront',name:'🏠 Homefront Hills',desc:'A peaceful neighborhood full of beginner enemies.',color:'#315d3b',stages:[
+ {name:'Backyard Battle',enemy:'Dusty Shoe',type:'Earth',hp:150,atk:28,def:12,reward:50},
+ {name:'Kitchen Clash',enemy:'Hot Toaster',type:'Heat',hp:185,atk:34,def:16,reward:65},
+ {name:'Boss: Garage Guardian',enemy:'Garage Guardian',type:'Metal',hp:260,atk:42,def:22,reward:110,boss:true}]},
+{id:'neoncity',name:'🌆 Neon City',desc:'Electric streets where machines come alive.',color:'#4b397a',stages:[
+ {name:'Arcade Alley',enemy:'Pixel Raider',type:'Energy',hp:250,atk:46,def:25,reward:85},
+ {name:'Tech Tower',enemy:'Circuit Beast',type:'Energy',hp:300,atk:52,def:29,reward:105},
+ {name:'Boss: Neon Overlord',enemy:'Neon Overlord',type:'Energy',hp:390,atk:63,def:36,reward:180,boss:true}]},
+{id:'wildlands',name:'🌲 Wildlands',desc:'Ancient nature has awakened—and it is not friendly.',color:'#28634f',stages:[
+ {name:'Vine Trail',enemy:'Vine Stalker',type:'Nature',hp:340,atk:58,def:34,reward:120},
+ {name:'Crystal Grove',enemy:'Crystal Beast',type:'Earth',hp:400,atk:65,def:40,reward:145},
+ {name:'Boss: Ancient Colossus',enemy:'Ancient Colossus',type:'Nature',hp:540,atk:78,def:48,reward:240,boss:true}]},
+{id:'skyreach',name:'☁️ Skyreach',desc:'Floating islands guarded by powerful aerial relics.',color:'#315b78',stages:[
+ {name:'Cloud Ruins',enemy:'Storm Drone',type:'Air',hp:470,atk:82,def:52,reward:170},
+ {name:'Thunder Temple',enemy:'Thunder Idol',type:'Light',hp:530,atk:92,def:58,reward:200},
+ {name:'Boss: Storm Emperor',enemy:'Storm Emperor',type:'Air',hp:700,atk:108,def:68,reward:325,boss:true}]},
+{id:'void',name:'🌌 The Void',desc:'The final realm. Reality itself fights back.',color:'#38244d',stages:[
+ {name:'Broken Archive',enemy:'Void Librarian',type:'Arcane',hp:620,atk:112,def:72,reward:240},
+ {name:'Endless Chamber',enemy:'Null Knight',type:'Arcane',hp:720,atk:125,def:80,reward:280},
+ {name:'FINAL BOSS: The Item King',enemy:'The Item King',type:'Divine',hp:1000,atk:150,def:95,reward:600,boss:true}]}
+];
+function setCampaignHero(id){if(!state.cards.some(c=>c.id===id))return;state.campaignHero=id;save();go('campaign');toast('Campaign hero selected!')}
+function campaignHero(){return state.cards.find(c=>c.id===state.campaignHero)||state.cards[0]||null}
+function campaignState(){state.campaign=state.campaign||{stage:0,coins:0,wins:0};return state.campaign}
+function campaignUnlocked(i){return i===0||campaignState().stage>=campaignRegions.slice(0,i).reduce((n,r)=>n+r.stages.length,0)}
+function campaignStageIndex(){return campaignState().stage}
+function campaignCurrent(){let n=campaignStageIndex(),count=0;for(let ri=0;ri<campaignRegions.length;ri++){for(let si=0;si<campaignRegions[ri].stages.length;si++){if(count===n)return {ri,si,region:campaignRegions[ri],stage:campaignRegions[ri].stages[si]};count++}}return null}
+function campaignStart(){let x=campaignCurrent();if(!x){toast('Campaign complete! You conquered ItemQuest.');return}syncActiveDeck();if(state.deck.length<1){toast('Add at least 1 card to your active deck first');return}let d=accountLevel().lvl;let st=x.stage;let scale=1+Math.min(1.8,(d-1)*.06);let enemy=Object.assign({},st,{hp:Math.round(st.hp*scale),maxHP:Math.round(st.hp*scale),atk:Math.round(st.atk*scale),def:Math.round(st.def*scale)});let lineup=shuffle(state.deck).slice(0,Math.min(5,state.deck.length)).map(getCard).filter(Boolean).map(cloneForBattle);lineup.forEach(c=>{let ab=artifactStats(c);c.hp+=ab.hp;c.atk+=ab.atk;c.def+=ab.def;c.maxHP=c.hp});state.campaignBattle={ri:x.ri,si:x.si,enemy,enemyHP:enemy.hp,lineup,idx:0,log:'Your campaign begins. Choose your move!',over:false};save();go('campaign')}
+function campaignGemReward(enemy){if(enemy&&enemy.boss){return enemy.name==='The Item King'?100:50}return 20}
+
+function campaignMove(mult){let b=state.campaignBattle;if(!b||b.over)return;let c=b.lineup[b.idx];if(!c)return;let dmg=Math.max(10,Math.round((c.atk-Math.floor(b.enemy.def*.35)+Math.random()*12)*mult));b.enemyHP-=dmg;recordUseBattle(c);attackEffect(c,mult>1.2?c.ability:'Basic '+keyForItem(c.name)+' attack');b.log=c.name+' dealt '+dmg+' damage to '+b.enemy.enemy+'.';if(b.enemyHP<=0){let x=campaignCurrent();let reward=b.enemy.reward||50;let gems=campaignGemReward(b.enemy);state.stats.coins+=reward;state.stats.gems=(state.stats.gems||0)+gems;state.stats.questXP+=b.enemy.boss?60:30;campaignState().wins++;campaignState().stage++;b.over=true;checkMissions();save();toast((b.enemy.boss?'👑 Boss defeated! ':'⚔️ Victory! ')+'+'+reward+' coins • +'+gems+' 💎');setTimeout(()=>{state.campaignBattle=null;save();renderCampaign()},700);return}let edmg=Math.max(7,Math.round(b.enemy.atk-Math.floor(c.def*.35)+Math.random()*10));c.hp-=edmg;b.log+=' '+b.enemy.enemy+' counterattacked for '+edmg+'.';if(c.hp<=0){b.idx++;if(b.idx>=b.lineup.length){b.over=true;b.log='Your whole team was defeated. Retry the stage or return to the map.';state.stats.coins+=20}}save();renderCampaign()}
+function campaignRetry(){let b=state.campaignBattle;if(!b)return;state.campaignBattle=null;campaignStart()}
+function campaignHome(){state.campaignBattle=null;save();go('home')}
+function renderCampaign(){let p=document.getElementById('campaignProgress'),m=document.getElementById('campaignMap'),ba=document.getElementById('campaignBattle');if(!p||!m||!ba)return;let cs=campaignState(),cur=campaignCurrent();p.innerHTML=cur?`<div class="statrow"><b>Campaign Progress</b><b>${cs.stage}/${campaignRegions.reduce((n,r)=>n+r.stages.length,0)}</b></div><div class="bar"><div class="fill" style="width:${cs.stage/(campaignRegions.reduce((n,r)=>n+r.stages.length,0))*100}%"></div></div><div class="muted small" style="margin-top:6px">Next: ${esc(cur.stage.name)} • ${esc(cur.region.name)}</div>`:'<h3>🏆 Campaign Complete!</h3><p class="muted">You conquered every region and defeated The Item King.</p>';let hero=campaignHero(),heroPic=hero&&hero.img?`background-image:url('${hero.img}')`:'';let heroIcon=hero?(hero.img?`<div class="campaign-avatar" style="${heroPic};left:calc(4px + (100% - 52px) * ${Math.min(1,cs.stage/14)})"></div>`:`<div class="campaign-avatar" style="left:calc(4px + (100% - 52px) * ${Math.min(1,cs.stage/14)})">${hero.emoji||'🃏'}</div>`):'<div class="campaign-avatar" style="left:4px">🃏</div>';m.innerHTML=`<div class="panel campaign-map"><div class="statrow"><b>🧭 Campaign Traveler</b><span>${hero?esc(hero.name):'Select a card'}</span></div><div class="map-track">${Array.from({length:15},(_,i)=>`<div class="map-node ${i<cs.stage?'done':i===cs.stage?'current':''}"><span>${i<cs.stage?'✓':i+1}</span></div>`).join('')}${heroIcon}</div></div>`+campaignRegions.map((r,i)=>{let unlocked=campaignUnlocked(i);let start=campaignRegions.slice(0,i).reduce((n,z)=>n+z.stages.length,0);return `<div class="panel" style="background:${unlocked?r.color:'#151824'};opacity:${unlocked?1:.55}"><h2 style="margin:0">${esc(r.name)}</h2><p class="muted">${esc(r.desc)}</p><div class="grid3">${r.stages.map((st,si)=>{let idx=start+si,done=cs.stage>idx,active=cs.stage===idx;return `<div class="panel" style="margin:0;border:1px solid ${done?'#18a974':active?'#c99522':'#3a4054'}"><b>${done?'✅':active?'▶️':'🔒'} ${esc(st.name)}</b><div class="tag">${esc(st.enemy)} • ${st.type}</div><div class="small muted">❤️ ${st.hp} • ⚔️ ${st.atk} • 🛡️ ${st.def}</div>${active?`<button class="gold" style="width:100%;margin-top:8px" data-action="campaign-start">Fight</button>`:''}</div>`}).join('')}</div></div>`}).join('');if(!state.campaignBattle){ba.innerHTML='<div class="panel"><h3>🧭 Campaign Map</h3><p class="muted">Complete each stage to unlock the next one. Bosses appear at the end of every region.</p></div>';return}let b=state.campaignBattle,c=b.lineup[b.idx];if(b.over&&!c){ba.innerHTML=`<div class="panel" style="text-align:center"><div style="font-size:60px">💀</div><h2>Defeated!</h2><p class="muted">The enemy won this stage. Your progress is safe.</p><div class="grid"><button class="primary" data-action="campaign-retry">🔄 Retry</button><button class="gold" data-action="campaign-home">🏠 Map Home</button></div></div>`;return}if(!c)return;ba.innerHTML=`<div class="battlebox"><div class="turn">🗺️ CAMPAIGN • ${esc(b.enemy.enemy)}</div><div class="statrow"><span>Enemy ❤️ ${Math.max(0,b.enemyHP)}/${b.enemy.maxHP}</span><span>Your Card ❤️ ${Math.max(0,c.hp)}</span></div><div class="bar"><div class="fill" style="width:${Math.max(0,b.enemyHP)/b.enemy.maxHP*100}%"></div></div><div class="fighter" style="margin-top:12px"><div>${cardHTML(c)}</div><div class="panel"><h3>${esc(b.enemy.enemy)}</h3><div class="muted">${b.enemy.type}${b.enemy.boss?' • 👑 BOSS':''}</div><div>⚔️ ${b.enemy.atk} &nbsp; 🛡️ ${b.enemy.def}</div><p>Reward: 🪙 ${b.enemy.reward}</p></div></div><p class="muted">${esc(b.log)}</p><div class="grid"><button class="primary" data-action="campaign-attack">⚔️ Attack</button><button class="gold" data-action="campaign-ability">✨ Ability</button></div><button class="btn" style="width:100%;margin-top:8px" data-action="campaign-home">🗺️ Leave Battle</button></div>`}
+
+function renderProgress(){let q=accountLevel(),lvl=q.lvl,need=q.need,xp=q.xp;document.getElementById('levelBadge').textContent='LV '+lvl;document.getElementById('coinBadge').textContent='🪙 '+state.stats.coins;document.getElementById('progressHome').innerHTML=`<div class="statrow"><b>Account Level</b><b>LV ${lvl}</b></div><div class="bar"><div class="fill" style="width:${xp/need*100}%"></div></div><div class="muted small" style="margin-top:6px">${xp}/${need} Quest XP • 🪙 ${state.stats.coins} coins • ${state.stats.criticals} criticals • ${state.cards.length} cards • ${state.deck.length}/60 active deck • ${Object.keys(state.decks||{}).length} decks</div>`}
+function missionValue(m){return Math.min(m.goal,m.fn(state.stats))}
+function claimMission(id){let idx=missions.findIndex(x=>x.id===id),first=missions.findIndex(m=>!state.missions[m.id]);let m=missions[idx];if(idx<0||idx!==first||!m||state.missions[id]){toast('Finish the current mission first!');return}if(missionValue(m)>=m.goal){state.missions[id]=true;state.stats.questXP+=m.reward;state.stats.coins+=(m.coins||0);toast('Mission complete! Next mission unlocked. +'+m.reward+' XP and '+(m.coins||0)+' coins');save()}}
+function checkMissions(){missions.forEach(m=>{if(!state.missions[m.id]&&missionValue(m)>=m.goal){}})}
+function missionHTML(m){let v=missionValue(m),done=!!state.missions[m.id];return `<div class="mission"><div style="flex:1"><b>${done?'✅ ':''}${esc(m.name)}</b><div class="muted small">${esc(m.desc)}</div><div class="bar" style="margin-top:7px"><div class="fill" style="width:${v/m.goal*100}%"></div></div><div class="small muted">${v}/${m.goal} • 🪙 ${m.coins||0} coins</div></div>${!done&&v>=m.goal?`<button class="gold" data-action="claim" data-id="${m.id}">Claim</button>`:`<span class="badge">+${m.reward} XP</span>`}</div>`}
+function renderMissions(){let first=missions.findIndex(m=>!state.missions[m.id]);if(first<0)first=missions.length;let visible=missions.filter((m,i)=>state.missions[m.id]||i===first);let h=visible.map(missionHTML).join('');document.getElementById('missionsHome').innerHTML=visible.slice(0,3).map(missionHTML).join('')||'<div class="mission"><b>🏆 All missions complete!</b><span class="badge">More quests coming</span></div>';document.getElementById('missionsAll').innerHTML=h||'<div class="mission"><b>🏆 All missions complete!</b></div>'}
+const shopPools={Common:['Apple Scout','Paper Sprite','Basic Mug','Tiny Ball','Pocket Book'],Rare:['Neon Headphones','Turbo Backpack','Crystal Bottle','Arcade Runner','Flash Camera'],Epic:['Storm Skateboard','Phantom Drone','Arcane Mirror','Volt Controller','Solar Lamp'],Legendary:['Titan Gaming PC','Royal Arcade','Dragon Bike','Celestial Camera','Thunder Drone'],Mythical:['Cosmic Headphones','Infinity Phone','Galaxy Skateboard','Eternal Camera','Mythic Drone'],God:['Godly Controller','Divine Forge Hammer','Celestial Backpack','Omega Drone','Godspeed Shoes'],Divine:['Divine Camera','Infinity Headphones','Eternal Skateboard','Divine Phone','Creator Lamp']};
+const shopPrices={Common:100,Rare:250,Epic:500,Legendary:1000,Mythical:2500,God:5000,Divine:10000};
+function shopRarity(i){return ['Common','Common','Rare','Rare','Epic','Legendary','Mythical','God','Divine'][i]||'Common'}
+function makeShopOffer(rarity,index){let pool=shopPools[rarity],name=pool[(state.shop.seed+index*7)%pool.length],id='shop-'+state.shop.seed+'-'+index;let seed=hash(name+id),mult={Common:1,Rare:1.15,Epic:1.32,Legendary:1.55,Mythical:1.85,God:2.2,Divine:2.7}[rarity];return {id,name,type:typeForItem(name),rarity,ability:abilityForItem(name,id),hp:Math.round((90+seed%35)*mult),atk:Math.round((19+seed%20)*mult),def:Math.round((17+seed%20)*mult),price:shopPrices[rarity],emoji:emojis[seed%emojis.length]}}
+function ensureShop(){if(!state.shop.offers||state.shop.offers.length!==9)state.shop.offers=Array.from({length:9},(_,i)=>makeShopOffer(shopRarity(i),i))}
+function sellValue(c){let base={Common:25,Rare:45,Epic:80,Legendary:130,Mythical:220,God:350,Divine:600}[c.rarity]||25;return Math.round(base+Math.max(0,(c.level||1)-1)*2)}
+function sellCard(id){let c=state.cards.find(x=>x.id===id);if(!c)return;let value=sellValue(c);state.cards=state.cards.filter(x=>x.id!==id);for(const k of Object.keys(state.decks||{})){state.decks[k]=(state.decks[k]||[]).filter(x=>x!==id)}state.deck=(state.decks[state.activeDeck]||[]);state.stats.coins+=value;state.stats.questXP+=5;checkMissions();save();go('shop');toast('Sold '+c.name+' for '+value+' coins!')}
+function divineSummon(){if((state.stats.gems||0)<500){toast('You need 500 Gems to summon a Divine card');return}state.stats.gems-=500;let names=['Divine Starforge','Divine Storm Core','Divine Everlight','Divine Void Crown','Divine Worldseed','Divine Chrono Key','Divine Sky Engine','Divine Prism Heart','Divine Titan Relic','Divine Arc Beacon'];let name=names[Math.floor(Math.random()*names.length)];let id=Date.now().toString(36)+Math.random().toString(36).slice(2,7);let seed=hash(name+id);let mult=2.7;let c={id,name,type:types[seed%types.length],rarity:'Divine',ability:abilityForItem(name,id),hp:Math.round((120+seed%55)*mult),atk:Math.round((30+seed%28)*mult),def:Math.round((28+seed%26)*mult),level:1,xp:0,uses:0,img:'',source:'divine-summon',emoji:emojis[seed%emojis.length]};state.cards.unshift(c);state.stats.created++;state.stats.mythical++;checkMissions();save();go('summon');setTimeout(()=>{let r=document.getElementById('summonResult');if(r)r.innerHTML='<div class="panel" style="text-align:center"><div class="card divine" style="max-width:420px;margin:auto">'+cardHTML(c)+'</div><h2>🌟 Divine Summon!</h2><p class="muted">You received <b>'+esc(c.name)+'</b> — a guaranteed Divine card.</p></div>';},0);toast('✨ Divine card summoned!');}
+
+function renderShop(){ensureShop();document.getElementById('shopCoins').textContent='🪙 '+state.stats.coins;document.getElementById('shopCards').innerHTML=state.shop.offers.map(o=>`<div class="card ${o.rarity.toLowerCase()}"><div class="pic">${o.emoji}</div><div class="body"><b>${esc(o.name)}</b><div class="tag">${o.type} • ${o.rarity}</div><div class="statrow"><span>❤️ ${o.hp}</span><span>⚔️ ${o.atk}</span><span>🛡️ ${o.def}</span></div><div class="tag">✨ ${esc(o.ability)}</div><div class="statrow"><span>Level 1/${maxCardLevel(o.rarity)}</span><b>🪙 ${o.price}</b></div><button class="gold" style="width:100%;margin-top:8px" data-action="buy-shop" data-id="${o.id}">${state.stats.coins>=o.price?'🛒 Buy Card':'🔒 Need '+o.price}</button></div></div>`).join('')};let sell=document.getElementById('sellCards');if(sell)sell.innerHTML=state.cards.length?state.cards.map(c=>`<div class="card ${c.rarity.toLowerCase()}"><div class="pic">${c.emoji||'🃏'}</div><div class="body"><b>${esc(c.name)}</b><div class="tag">${c.type} • ${c.rarity}</div><div class="statrow"><span>❤️ ${c.hp}</span><span>⚔️ ${c.atk}</span><span>🛡️ ${c.def}</span></div><div class="tag">LV ${c.level||1}/${maxCardLevel(c.rarity)} • ${c.uses||0} uses</div><div class="statrow"><span>Sell value</span><b>🪙 ${sellValue(c)}</b></div><button class="danger" style="width:100%;margin-top:8px" data-action="sell-card" data-id="${c.id}">💰 Sell for ${sellValue(c)}</button></div></div>`).join(''):'<div class="panel">Your collection is empty. Create or buy a card first.</div>'
+function buyShop(id){ensureShop();let o=state.shop.offers.find(x=>x.id===id);if(!o)return;if(state.stats.coins<o.price){toast('Not enough coins');return}state.stats.coins-=o.price;let c={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),name:o.name,type:o.type,rarity:o.rarity,ability:o.ability,hp:o.hp,atk:o.atk,def:o.def,level:1,xp:0,uses:0,img:'',source:'shop',emoji:o.emoji};state.cards.unshift(c);state.stats.created++;if(tierCounted(c.rarity))state.stats.mythical++;state.shop.offers=state.shop.offers.filter(x=>x.id!==id);while(state.shop.offers.length<9){let i=state.shop.offers.length;state.shop.offers.push(makeShopOffer(shopRarity(i),i))}checkMissions();save();go('shop');toast('Bought '+c.name+'!')}
+function refreshShop(){if(state.stats.coins<25){toast('You need 25 coins');return}state.stats.coins-=25;state.shop.seed++;state.shop.offers=[];ensureShop();save();go('shop');toast('Shop refreshed!')}
+function renderCollection(){document.getElementById('collectionCount').textContent=state.cards.length+' cards collected';document.getElementById('cards').innerHTML=state.cards.length?state.cards.map(c=>cardHTML(c,{button:'campaign-hero',label:state.campaignHero===c.id?'🗺️ Campaign Hero':'🗺️ Set Campaign Hero'})).join(''):'<div class="panel">No cards yet. Create your first card!</div>'}
+function syncActiveDeck(){state.deck=state.decks[state.activeDeck]||[];state.decks[state.activeDeck]=state.deck}
+function toggleDeck(id){syncActiveDeck();let i=state.deck.indexOf(id);if(i>=0)state.deck.splice(i,1);else if(state.deck.length<60)state.deck.push(id);else{toast('Deck limit is 60 cards');return}save();renderDeck()}
+function renderDeck(){syncActiveDeck();let names=Object.keys(state.decks),sel=document.getElementById('deckSelect');if(sel)sel.innerHTML=names.map(n=>`<option value="${esc(n)}" ${n===state.activeDeck?'selected':''}>${esc(n)}</option>`).join('');let input=document.getElementById('deckNameInput');if(input&&document.activeElement!==input)input.value=state.activeDeck;let d=state.deck.map(getCard).filter(Boolean);document.getElementById('deckInfo').innerHTML=`<div class="statrow"><b>${esc(state.activeDeck)} • ${d.length}/60 cards</b><span class="muted">${names.length} saved deck${names.length===1?'':'s'}</span></div>`;document.getElementById('deckCards').innerHTML=state.cards.length?state.cards.map(c=>cardHTML(c,{button:'toggle-deck',label:state.deck.includes(c.id)?'➖ Remove from Deck':'➕ Add to Deck'})).join(''):'<div class="panel">Create cards first.</div>'}
+function newDeck(){let n=1,name='Deck '+n;while(state.decks[name]){n++;name='Deck '+n}state.decks[name]=[];state.activeDeck=name;syncActiveDeck();save();let input=document.getElementById('deckNameInput');if(input)input.value=name;renderDeck();toast(name+' created and saved!')}
+function renameDeck(){let old=state.activeDeck;let input=document.getElementById('deckNameInput');let name=(input&&input.value?input.value:old).trim().slice(0,24);if(!name){toast('Enter a deck name first');return}if(name===old){save();renderDeck();toast('Deck saved!');return}if(state.decks[name]){toast('A deck with that name already exists');return}state.decks[name]=state.decks[old]||[];delete state.decks[old];state.activeDeck=name;syncActiveDeck();save();if(input)input.value='';renderDeck();toast('Deck renamed and saved!')}
+function deleteDeck(){let names=Object.keys(state.decks);if(names.length<=1){toast('Keep at least one deck');return}let old=state.activeDeck;if(!confirm('Delete '+old+'?'))return;delete state.decks[old];state.activeDeck=Object.keys(state.decks)[0];syncActiveDeck();save();renderDeck();toast('Deck deleted')}
+function selectDeck(name){if(!state.decks[name])return;state.activeDeck=name;syncActiveDeck();save();renderDeck();toast('Switched to '+name)}
+function cloneForBattle(c){return JSON.parse(JSON.stringify(c))}
+function currentF(side){let b=state.battle, p=b&&b[side];return p?p.lineup[p.idx]:null}
+function awardBattleCoins(amount,reason){state.stats.coins+=amount;toast('+'+amount+' coins'+(reason?' • '+reason:''));save()}
+function finishPlayerBattle(winner){let b=state.battle;if(!b)return;state.stats.playerWins++;state.stats.questXP+=25;awardBattleCoins(60,'Battle win +25 Quest XP');b.winner=winner;b.log='Player '+winner+' wins! +60 coins and 25 Quest XP.';b.over=true;checkMissions();save();renderBattle()}
+function randomLineup(exclude){let ids=state.deck.slice();if(ids.length<2)ids=Object.keys(state.cards.length?Object.fromEntries(state.cards.map(c=>[c.id,c])):{});let pool=shuffle(ids.filter(id=>!exclude.includes(id)));return pool.slice(0,Math.min(5,pool.length)).map(getCard).filter(Boolean).map(cloneForBattle)}
+function startBattle(){syncActiveDeck();if(state.deck.length<2){toast('Add at least 2 cards to your active deck');return}let p1ids=shuffle(state.deck).slice(0,Math.min(5,state.deck.length));let others=state.cards.map(c=>c.id).filter(id=>!p1ids.includes(id));let p2ids=shuffle((others.length?others:state.deck)).slice(0,Math.min(5,state.deck.length));state.battle={mode:'player',turn:1,p1:{lineup:p1ids.map(getCard).filter(Boolean).map(cloneForBattle),idx:0},p2:{lineup:p2ids.map(getCard).filter(Boolean).map(cloneForBattle),idx:0},log:'Player 1 starts. Pass the phone after each move.',over:false};save();go('battle')}
+function attackEffect(card,ability){let k=keyForItem(card.name+' '+ability),icons={shoe:'👟💥',plant:'🌿⚡',toaster:'🍞🔥',lamp:'💡✨',book:'📚🌪️',arcade:'🕹️💫',phone:'📱⚡',computer:'💻⚡',keyboard:'⌨️💥',mouse:'🖱️💨',controller:'🎮💥',cup:'🥤💦',bottle:'🍼💦',chair:'🪑💥',table:'🪵💥',backpack:'🎒💨',key:'🔑✨',remote:'📺⚡',mirror:'🪞✨',ball:'⚽💨',headphones:'🎧🔊',camera:'📷✨',drone:'🚁💨',skateboard:'🛹💨',umbrella:'☂️🌪️',watch:'⌚⏱️',bike:'🚲💨',generic:'💥✨'};let fx=document.createElement('div');fx.className='attackfx '+k;fx.innerHTML=(icons[k]||'💥✨')+'<span>'+esc(ability||'Attack')+'</span>';document.body.appendChild(fx);setTimeout(()=>fx.remove(),750)}
+function attack(){if(!state.battle||state.battle.over)return;let b=state.battle;if(b.mode==='boss'){bossMove(1.15);return}let me=currentF('p'+b.turn),enemy=currentF('p'+(b.turn===1?2:1));if(!me||!enemy)return;let out=battleDamage(me,enemy,me.atk-Math.floor(enemy.def*.45)+Math.floor(Math.random()*9));enemy.hp-=out.dmg;recordUseBattle(me);attackEffect(me,'Basic '+keyForItem(me.name)+' attack');let edge=out.mult>1?' Type advantage!':out.mult<1?' Not very effective.':'';let crit=out.crit?' CRITICAL HIT!':'';b.log='Player '+b.turn+' attacked for '+out.dmg+' damage.'+edge+crit;if(enemy.hp<=0){b['p'+(b.turn===1?2:1)].idx++;if(b['p'+(b.turn===1?2:1)].idx>=b['p'+(b.turn===1?2:1)].lineup.length){finishPlayerBattle(b.turn);return}b.log+=' Next card enters!';}b.turn=b.turn===1?2:1;save();renderBattle()}
+function doAbility(){if(!state.battle||state.battle.over)return;let b=state.battle;if(b.mode==='boss'){bossMove(1.3);return}let me=currentF('p'+b.turn),enemy=currentF('p'+(b.turn===1?2:1));if(!me||!enemy)return;let out=battleDamage(me,enemy,me.atk+12-Math.floor(enemy.def*.3)+Math.floor(Math.random()*12));enemy.hp-=out.dmg;recordUseBattle(me);attackEffect(me,me.ability);let edge=out.mult>1?' Type advantage!':out.mult<1?' Not very effective.':'';let crit=out.crit?' CRITICAL HIT!':'';b.log=me.name+' used '+me.ability+' for '+out.dmg+' damage.'+edge+crit;if(enemy.hp<=0){b['p'+(b.turn===1?2:1)].idx++;if(b['p'+(b.turn===1?2:1)].idx>=b['p'+(b.turn===1?2:1)].lineup.length){finishPlayerBattle(b.turn);return}}b.turn=b.turn===1?2:1;save();renderBattle()}
+function recordUseBattle(f){let c=getCard(f.id);if(!c)return;c.uses++;state.stats.uses++;addXP(c,15);gainArtifactXP(c,10);f.level=c.level;f.atk=c.atk;f.def=c.def;f.hp=Math.min(f.hp,c.hp);checkMissions()}
+function bossMenu(){let a=document.getElementById('battleArea'),L=accountLevel().lvl;a.innerHTML='<div class="panel"><h3>👑 Choose a Boss</h3><p class="muted">Bosses scale with your account level. Higher level = stronger boss. God and Divine cards are the rarest tiers.</p><div class="bosslist">'+bosses.map(base=>{let b=bossScaled(base);return `<div class="boss"><b>${b.name}</b><div class="muted">${b.type} • ❤️ ${b.hp} • ⚔️ ${b.atk} • 🛡️ ${b.def}</div><div class="tag">Your Account Level: ${L} • Difficulty x${b.scale.toFixed(2)}</div><button class="gold" style="margin-top:8px" data-action="fight-boss" data-id="${b.id}">Fight • Reward ${b.reward} coins</button></div>`}).join('')+'</div></div>'}
+function startBoss(id){syncActiveDeck();if(state.deck.length<1){toast('Add at least 1 card to your active deck');return}let boss=bosses.find(x=>x.id===id);if(!boss)return;boss=bossScaled(boss);let lineup=shuffle(state.deck).slice(0,Math.min(5,state.deck.length)).map(getCard).map(cloneForBattle);state.battle={mode:'boss',boss, bossHP:boss.hp, player:{lineup,idx:0},log:'Choose Attack or Ability.',over:false};save();go('battle')}
+function bossMove(mult){
+ let b=state.battle;
+ if(!b||b.over)return;
+ let c=b.player.lineup[b.player.idx];
+ if(!c){b.log='Boss battle ended.';b.over=true;save();renderBattle();return}
+ let playerDamage=Math.max(10,Math.round((c.atk-Math.floor(b.boss.def*.35)+Math.random()*10)*mult));
+ b.bossHP-=playerDamage;
+ recordUseBattle(c);
+ attackEffect(c,c.ability);
+ b.log=c.name+' used '+c.ability+' for '+playerDamage+' damage.';
+ if(b.bossHP<=0){
+   state.stats.bossWins++;
+   state.stats.coins+=b.boss.reward;
+   state.stats.questXP+=40;
+   b.log='Boss defeated! +'+b.boss.reward+' coins and 40 Quest XP.';
+   b.over=true;
+   checkMissions();save();toast('Boss defeated! Returning home...');setTimeout(()=>{state.battle=null;save();go('home')},900);return;
+ }
+ // Boss always strikes back after the player's move.
+ let bossDamage=Math.max(8,Math.round((b.boss.atk-Math.floor(c.def*.35)+Math.random()*10)));
+ c.hp-=bossDamage;
+ b.log+=' '+b.boss.name+' counterattacked for '+bossDamage+' damage.';
+ if(c.hp<=0){
+   b.player.idx++;
+   if(b.player.idx>=b.player.lineup.length){
+     b.log='Your whole team was defeated by '+b.boss.name+'. +25 coins for battling.';
+     state.stats.coins+=25;
+     b.over=true;
+   }else{
+     let next=b.player.lineup[b.player.idx];
+     b.log+=' '+next.name+' enters the battle!';
+   }
+ }
+ save();renderBattle();
+}
+function renderBattle(){let a=document.getElementById('battleArea'),b=state.battle;if(!b){if(!a.innerHTML||a.innerHTML.includes('battle is over'))a.innerHTML='<div class="panel"><h3>Ready?</h3><p class="muted">Choose Pass & Play for a randomized two-player match or Fight Boss for solo play.</p></div>';return}if(b.mode==='boss'){let c=b.player.lineup[b.player.idx];if(b.over && !c){a.innerHTML='<div class="panel" style="text-align:center;padding:28px"><div style="font-size:64px">💀</div><h2>Your team was defeated!</h2><p class="muted">The boss won this battle. You earned 25 coins for trying.</p><div class="grid"><button class="primary" data-action="retry-boss">🔄 Retry</button><button class="gold" data-action="home">🏠 Go Home</button></div></div>';return}if(!c){a.innerHTML='<div class="panel"><h3>Battle Over</h3><p class="muted">Your team can no longer continue this boss battle.</p><button class="primary" data-action="boss-menu">👑 Choose Another Boss</button></div>';return}a.innerHTML=`<div class="battlebox"><div class="turn">SOLO BOSS • ${esc(b.boss.name)}</div><div class="statrow"><span>Boss ❤️ ${Math.max(0,b.bossHP)}/${b.boss.hp}</span><span>Player ❤️ ${Math.max(0,c.hp)}/${c.hp+c.def+60}</span></div><div class="bar"><div class="fill" style="width:${Math.max(0,b.bossHP)/b.boss.hp*100}%"></div></div><div class="fighter" style="margin-top:12px"><div>${cardHTML(c)}</div><div class="panel"><h3>${esc(b.boss.name)}</h3><div class="muted">${b.boss.type}</div><div>⚔️ ${b.boss.atk} &nbsp; 🛡️ ${b.boss.def}</div><p>${esc(b.boss.ability)}</p></div></div><p class="muted">${esc(b.log)}</p><div class="grid">${b.over?'':'<button class="primary" data-action="attack">⚔️ Attack</button><button class="gold" data-action="ability">✨ Ability</button>'}</div></div>`;return}let p1=currentF('p1'),p2=currentF('p2');if(b.over){a.innerHTML=`<div class="panel" style="text-align:center;padding:28px"><div style="font-size:64px">🏆</div><h2>Player ${b.winner||1} Wins!</h2><p class="muted">${esc(b.log)}</p><div class="grid"><button class="primary" data-action="start-battle">⚔️ Play Again</button><button class="gold" data-action="home">🏠 Go Home</button></div></div>`;return}if(!p1||!p2){a.innerHTML='<div class="panel"><h3>Battle Over</h3><button class="gold" data-action="home">🏠 Go Home</button></div>';return}a.innerHTML=`<div class="battlebox"><div class="turn">PLAYER ${b.turn} TURN</div><p class="muted">${esc(b.log)}</p><div class="fighter"><div>${cardHTML(p1)}</div><div>${cardHTML(p2)}</div></div><div class="grid" style="margin-top:10px"><button class="primary" data-action="attack">⚔️ Attack</button><button class="gold" data-action="ability">✨ Ability</button></div><button class="btn" style="width:100%;margin-top:8px" data-action="reveal">🔄 Pass Phone / Reveal Next Turn</button></div>`}
+function renderAll(){let gems=(state.stats.gems||0);let gb=document.getElementById('gemBadge');if(gb)gb.textContent='💎 '+gems;let sg=document.getElementById('summonGems');if(sg)sg.textContent='💎 '+gems+' Gems';let hg=document.getElementById('homeGems');if(hg)hg.textContent='💎 '+gems;renderProgress();renderMissions();renderCollection();renderDeck();renderBattle();renderCampaign();renderShop();renderArtifacts()}
+function buttonTarget(el, attr){
+  while(el && el !== document.documentElement){
+    if(el.dataset && el.dataset[attr] !== undefined) return el;
+    el=el.parentElement;
+  }
+  return null;
+}
+function handleClick(e){
+  let goBtn=buttonTarget(e.target,'go');
+  if(goBtn){ e.preventDefault(); go(goBtn.dataset.go); return; }
+  let b=buttonTarget(e.target,'action');
+  if(!b) return;
+  e.preventDefault();
+  let a=b.dataset.action;
+  try{
+    if(a==='make-card') makeCard();
+    else if(a==='ai-card') aiGenerate();
+    else if(a==='toggle-deck') toggleDeck(b.dataset.id);
+   else if(a==='new-deck') newDeck();
+   else if(a==='rename-deck') renameDeck();
+   else if(a==='delete-deck') deleteDeck();
+    else if(a==='save-deck'){syncActiveDeck();if(save())toast('Deck saved!')}
+    else if(a==='start-battle') startBattle();
+    else if(a==='attack') attack();
+    else if(a==='ability') doAbility();
+    else if(a==='reveal'){let x=state.battle;if(x&&x.mode==='player'){x.log='Pass the phone. Player '+x.turn+' can choose a move.';save();renderBattle();}}
+    else if(a==='boss-menu') bossMenu();
+    else if(a==='retry-boss'){let x=state.battle;if(x&&x.mode==='boss'&&x.boss)startBoss(x.boss.id)}
+    else if(a==='home'){state.battle=null;save();go('home')}
+    else if(a==='fight-boss') startBoss(b.dataset.id);
+    else if(a==='claim') claimMission(b.dataset.id);
+    else if(a==='buy-shop') buyShop(b.dataset.id);
+    else if(a==='sell-card') sellCard(b.dataset.id);
+    else if(a==='find-artifact') findArtifact();
+    else if(a==='summon-divine') divineSummon();
+    else if(a==='artifact-xp') trainEquipped();
+    else if(a==='equip-artifact') equipArtifact(b.dataset.id,b.dataset.slot);
+    else if(a==='unequip-artifact'){let c=selectedArtifactCard();if(c&&c.artifacts){delete c.artifacts[b.dataset.slot];save();renderArtifacts();toast('Artifact unequipped')}}
+    else if(a==='campaign-hero') setCampaignHero(b.dataset.id);
+    else if(a==='refresh-shop') refreshShop();
+    else if(a==='campaign-start') campaignStart();
+    else if(a==='campaign-attack') campaignMove(1.12);
+    else if(a==='campaign-ability') campaignMove(1.32);
+    else if(a==='campaign-retry') campaignRetry();
+    else if(a==='campaign-home') campaignHome();
+  }catch(err){ console.error(err); toast('Something went wrong — try again'); }
+}
+function initItemQuest(){
+  document.documentElement.classList.add('itemquest-ready');
+  document.addEventListener('change',e=>{if(e.target&&e.target.id==='deckSelect')selectDeck(e.target.value);if(e.target&&e.target.id==='artifactCardSelect'){state.artifactSelectedCard=e.target.value;save();renderArtifacts()}},false);
+  document.addEventListener('click',handleClick,true);
+  let photo=document.getElementById('photo');
+  if(photo) photo.addEventListener('change',handlePhoto,false);
+  renderAll();
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initItemQuest); else initItemQuest();
+</script>
+</body>
+</html>
